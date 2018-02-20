@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto:300,300italic,400,400italic,700,700italic|Yellowtail:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="排序,C++,STL," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Scott Woo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="排序函数： 函数名 功能描述  sort  对给定区间所有元素进行排序  stable_sort  对给定区间所有元素进行稳定排序  partial_sort  对给定区间所有元素部分排序  partial_sort_copy">
+<meta name="keywords" content="排序,C++,STL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ STL之排序函数详解">
+<meta property="og:url" content="http://www.faxiang.site/2015/01/22/C++ STL之排序函数详解/index.html">
+<meta property="og:site_name" content="Scott Woo">
+<meta property="og:description" content="排序函数： 函数名 功能描述  sort  对给定区间所有元素进行排序  stable_sort  对给定区间所有元素进行稳定排序  partial_sort  对给定区间所有元素部分排序  partial_sort_copy">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-12T03:05:51.129Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ STL之排序函数详解">
+<meta name="twitter:description" content="排序函数： 函数名 功能描述  sort  对给定区间所有元素进行排序  stable_sort  对给定区间所有元素进行稳定排序  partial_sort  对给定区间所有元素部分排序  partial_sort_copy">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.faxiang.site/2015/01/22/C++ STL之排序函数详解/"/>
+
+
+
+
+
+  <title>C++ STL之排序函数详解 | Scott Woo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Scott Woo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2015/01/22/C++ STL之排序函数详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Scott Woo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Scott Woo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">C++ STL之排序函数详解</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T22:25:12+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,185
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="排序函数："><a href="#排序函数：" class="headerlink" title=" 排序函数： "></a><strong> 排序函数： </strong></h2><p>函数名</p>
+<p>功能描述</p>
+<blockquote>
+<p>sort</p>
+</blockquote>
+<p>对给定区间所有元素进行排序</p>
+<blockquote>
+<p>stable_sort</p>
+</blockquote>
+<p>对给定区间所有元素进行稳定排序</p>
+<blockquote>
+<p>partial_sort</p>
+</blockquote>
+<p>对给定区间所有元素部分排序</p>
+<blockquote>
+<p>partial_sort_copy</p>
+</blockquote>
+<a id="more"></a>
+<p>对给定区间复制并排序</p>
+<blockquote>
+<p>nth_element</p>
+</blockquote>
+<p>找出给定区间的某个位置对应的元素</p>
+<blockquote>
+<p>is_sorted</p>
+</blockquote>
+<p>判断一个区间是否已经排好序</p>
+<blockquote>
+<p>partition</p>
+</blockquote>
+<p>使得符合某个条件的元素放在前面</p>
+<blockquote>
+<p>stable_partition</p>
+</blockquote>
+<p>相对稳定的使得符合某个条件的元素放在前面</p>
+<h2 id="sort"><a href="#sort" class="headerlink" title=" sort: "></a><strong> sort: </strong></h2><p>要使用此函数只需用#include <algorithm> sort即可使用，<br>语法描述为：</algorithm></p>
+<p>sort(begin,end)，表示一个范围，例如：  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[]=&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">5</span>,<span class="number">76</span>,<span class="number">0</span>,<span class="number">43</span>,<span class="number">24</span>,<span class="number">65</span>&#125;; </span><br><span class="line">	<span class="keyword">int</span> i; </span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	sort(a,a+<span class="number">10</span>);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：  </p>
+<pre><code>2 4 1 23 5 76 0 43 24 65  
+0 1 2 4 5 23 24 43 65 76  
+</code></pre><p>&emsp;&emsp;输出结果将是把数组a按升序排序，说到这里可能就有人会问怎么样用它降序排列呢？这就是下一个讨论的内容.</p>
+<p>&emsp;&emsp;一种是自己编写一个比较函数来实现，接着调用三个参数的sort：sort(begin,end,compare)就成了。<br>对于list容器，这个方法也适用，把compare作为sort的参数就可以了，即：sort(compare).<br>1）自己编写compare函数：  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> a&gt;b;   <span class="comment">//降序排列，如果改为return a&lt;b，则为升序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果  </p>
+<pre><code>2 4 1 23 5 76 0 43 24 65  
+76 65 43 24 23 5 4 2 1 0  
+</code></pre><p>2）更进一步，让这种操作更加能适应变化。也就是说，能给比较函数一个参数，用来指示是按升序还是按降序排,这回轮到函数对象出场了。</p>
+<p>为了描述方便，我先定义一个枚举类型EnumComp用来表示升序和降序。很简单：</p>
+<p><strong> enum Enumcomp{ASC,DESC}; </strong></p>
+<p>然后开始用一个类来描述这个函数对象。它会根据它的参数来决定是采用“&lt;”还是“&gt;”。  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">compare</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">      <span class="keyword">private</span>:</span><br><span class="line">            Enumcomp comp;</span><br><span class="line">      <span class="keyword">public</span>:</span><br><span class="line">            compare(Enumcomp c):comp(c) &#123;&#125;;</span><br><span class="line">      <span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span> <span class="params">(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)</span></span></span><br><span class="line"><span class="function">         </span>&#123;</span><br><span class="line">            <span class="keyword">switch</span>(comp)</span><br><span class="line">              &#123;</span><br><span class="line">                 <span class="keyword">case</span> ASC:</span><br><span class="line">                        <span class="keyword">return</span> num1&lt;num2;</span><br><span class="line">                 <span class="keyword">case</span> DESC:</span><br><span class="line">                        <span class="keyword">return</span> num1&gt;num2;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>接下来使用 <strong> sort(begin,end,compare(ASC) </strong> 实现升序， <strong> sort(begin,end,compare(DESC)
+</strong> 实现降序  </p>
+<p>3)其实对于这么简单的任务（类型支持“&lt;”、“&gt;”等比较运算符），完全没必要自己写一个类出来。<br>标准库里已经有现成的了，就在functional里，include进来就行了。functional提供了一堆基于模板的比较函数对象。<br>它们是（看名字就知道意思了）： <strong> equal_to<type> </type></strong> 、 <strong> not_equal_to<type>、greater<type>、gre<br>ater_equal<type>、less<type>、less_equal<type> </type></type></type></type></type></strong> 。<br>对于这个问题来说，greater和less就足够了，直接拿过来用：</p>
+<p>升序： <strong> sort(begin,end,less<data-type>()); </data-type></strong><br>降序： <strong> sort(begin,end,greater<data-type>()). </data-type></strong>  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[]=&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">5</span>,<span class="number">76</span>,<span class="number">0</span>,<span class="number">43</span>,<span class="number">24</span>,<span class="number">65</span>&#125;; </span><br><span class="line">	<span class="keyword">int</span> i; </span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	sort(a,a+<span class="number">10</span>,greater&lt;<span class="keyword">int</span>&gt;());  <span class="comment">//升序为less&lt;int&gt;() </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4)既然有迭代器，如果是string 就可以使用反向迭代器来完成逆序排列，程序如下：  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     <span class="function"><span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"cvicses"</span>)</span></span>;</span><br><span class="line">     string s(str.rbegin(),str.rend());</span><br><span class="line">     <span class="built_in">cout</span> &lt;&lt; s &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="stable-sort"><a href="#stable-sort" class="headerlink" title="stable_sort:"></a>stable_sort:</h2><p>stable_sort 函数与sort函数用法相同。这两个函数的原理都是快速排序，时间复杂度在所有排序中最低，为O(nlog2n) ;</p>
+<p>区别是stable_sort 是稳定排序，也就是stable_sort函数遇到两个数相等时，不对其交换顺序；</p>
+<p>这个应用在数组里面不受影响，当函数参数传入的是结构体时，会发现两者之间的明显区别；</p>
+<h2 id="partial-sort"><a href="#partial-sort" class="headerlink" title=" partial_sort: "></a><strong> partial_sort: </strong></h2><p>paitical_sort的原理是堆排序！</p>
+<p>首先创建一个堆，得到最大值。如果要得到次大值，就将头结点去掉，即调用pop_heap()，此时的头结点就是次大值，可以这样依次得到最大或者最小的几个值！</p>
+<p>函数原型有：</p>
+<blockquote>
+<p>partial_sort(beg,mid,end)</p>
+<p>partial_sort(beg,mid,end,comp)  </p>
+</blockquote>
+<p><strong> 函数作用： </strong></p>
+<p>对mid-beg个元素进行排序，也就是说，如果mid-beg等于42，则该函数将有序次序中的最小值元素放在序列中</p>
+<p>的前42个位置。partial_sort完成之后，从beg到mid(但不包括mid)范围内的元素时有序的，已排序范围内没有</p>
+<p>元素大于mid之后的元素。未排序元素之间的次序是未指定的。</p>
+<p>例如：<br>有一个赛跑成绩的集合，我们想知道前三名的成绩但并不关心其他名次的次序，可以这样对这个序列进行排序。<br><strong> partial_sort（scores.begin(),scores.begin()+3,scores.end()); </strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rand_int</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> rand()%<span class="number">100</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;v,<span class="keyword">const</span> <span class="keyword">char</span>* s)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    copy(v.begin(),v.end(),ostream_iterator&lt;<span class="keyword">int</span>&gt;(<span class="built_in">cout</span>,<span class="string">" "</span>));  </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> &amp;a, <span class="keyword">int</span> &amp;b)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">if</span>(a&gt;b)  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">compare</span>&#123;</span>  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;a,<span class="keyword">const</span> <span class="keyword">int</span> &amp;b)</span>  </span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(a&lt;b)  </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    srand(time(<span class="literal">NULL</span>));  </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;  </span><br><span class="line">    generate_n(back_inserter(v),<span class="number">10</span>,rand_int);  </span><br><span class="line">    print(v,<span class="string">"产生10个随机数"</span>);  </span><br><span class="line">  </span><br><span class="line">    partial_sort(v.begin(),v.begin()+<span class="number">4</span>,v.end());  </span><br><span class="line">    print(v,<span class="string">"局部递增排序"</span>);  </span><br><span class="line">  </span><br><span class="line">    partial_sort(v.begin(),v.begin()+<span class="number">4</span>,v.end(),cmp);  </span><br><span class="line">    print(v,<span class="string">"局部递减排序"</span>);  </span><br><span class="line">  </span><br><span class="line">    partial_sort(v.begin(),v.begin()+<span class="number">4</span>,v.end(),compare());  </span><br><span class="line">    print(v,<span class="string">"局部递增排序"</span>);  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：</p>
+<pre><code>产生10个随机数  
+69 54 33 50 13 52 54 61 29 5  
+局部递增排序  
+5 13 29 33 69 54 54 61 52 50  
+局部递减排序  
+69 61 54 54 5 13 29 33 52 50  
+局部递增排序  
+5 13 29 33 69 61 54 54 52 50  
+</code></pre><p>通过程序可以看到两次局部递增排序并不相同，因为partial_port不是稳定排序算法。在只需要最大或最小的几个值时，partial_port比其他排序算法<br>快。</p>
+<h2 id="partial-sort-copy"><a href="#partial-sort-copy" class="headerlink" title=" partial_sort_copy: "></a><strong> partial_sort_copy: </strong></h2><p>原型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">InputIterator</span>, <span class="title">RandomAccessIterator</span>&gt; <span class="title">inline</span></span></span><br><span class="line"><span class="class">  <span class="title">RandomAccessIterator</span> <span class="title">partial_sort</span>(<span class="title">InputIterator</span> <span class="title">first1</span>,</span></span><br><span class="line"><span class="class">                                    <span class="title">InputIterator</span> <span class="title">last1</span>,</span></span><br><span class="line"><span class="class">                                    <span class="title">RandomAccessIterator</span> <span class="title">first2</span>,</span></span><br><span class="line"><span class="class">                                    <span class="title">RandomAccessIterator</span> <span class="title">last2</span>)</span></span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>partial_sort_copy其实是copy和partial_sort的组合。被排序(被复制)的数量是[first,last)和[result_first, result_last)中区间较小的那个。如果[result_first,result_last)区间大于[first, last)区间，那么partial_sort相当于copy和sort的组合。  </p>
+<p>示例代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> VECTOR_SIZE = <span class="number">8</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Define a template class vector of int</span></span><br><span class="line">    <span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>, allocator&lt;<span class="keyword">int</span>&gt; &gt; IntVector ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Define an iterator for template class vector of strings</span></span><br><span class="line">    <span class="keyword">typedef</span> IntVector::iterator IntVectorIt ;</span><br><span class="line"></span><br><span class="line">    <span class="function">IntVector <span class="title">Numbers</span><span class="params">(VECTOR_SIZE)</span> </span>;</span><br><span class="line">    <span class="function">IntVector <span class="title">Result</span><span class="params">(<span class="number">4</span>)</span> </span>;</span><br><span class="line"></span><br><span class="line">    IntVectorIt start, end, it ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Initialize vector Numbers</span></span><br><span class="line">    Numbers[<span class="number">0</span>] = <span class="number">4</span> ;</span><br><span class="line">    Numbers[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">    Numbers[<span class="number">2</span>] = <span class="number">70</span> ;</span><br><span class="line">    Numbers[<span class="number">3</span>] = <span class="number">30</span> ;</span><br><span class="line">    Numbers[<span class="number">4</span>] = <span class="number">10</span>;</span><br><span class="line">    Numbers[<span class="number">5</span>] = <span class="number">69</span> ;</span><br><span class="line">    Numbers[<span class="number">6</span>] = <span class="number">96</span> ;</span><br><span class="line">    Numbers[<span class="number">7</span>] = <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">    start = Numbers.begin() ;   <span class="comment">// location of first</span></span><br><span class="line">                                <span class="comment">// element of Numbers</span></span><br><span class="line"></span><br><span class="line">    end = Numbers.end() ;       <span class="comment">// one past the location</span></span><br><span class="line">                                <span class="comment">// last element of Numbers</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Before calling partial_sort_copy\n"</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// print content of Numbers</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Numbers &#123; "</span> ;</span><br><span class="line">    <span class="keyword">for</span>(it = start; it != end; it++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="string">" "</span> ;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">" &#125;\n"</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// sort the smallest 4 elements in the Numbers</span></span><br><span class="line">    <span class="comment">// and copy the results in Result</span></span><br><span class="line">    partial_sort_copy(start, end, Result.begin(), Result.end()) ;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"After calling partial_sort_copy\n"</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Numbers &#123; "</span> ;</span><br><span class="line">    <span class="keyword">for</span>(it = start; it != end; it++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="string">" "</span> ;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">" &#125;\n"</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Result &#123; "</span> ;</span><br><span class="line">    <span class="keyword">for</span>(it = Result.begin(); it != Result.end(); it++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="string">" "</span> ;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">" &#125;\n"</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：</p>
+<pre><code>Before calling partial_sort_copy  
+
+Numbers { 4 10 70 30 10 69 96 7  }  
+
+After calling partial_sort_copy  
+
+Numbers { 4 10 70 30 10 69 96 7  }  
+
+Result { 4 7 10 10  }  
+</code></pre><h2 id="nth-element"><a href="#nth-element" class="headerlink" title="nth_element:"></a>nth_element:</h2><p>简单的说nth_element算法仅排序第nth个元素（从0开始的索引）</p>
+<p>如iarray [first,last) 元素区间</p>
+<p>排序后  iarray[nth] 就是第nth大的元素（从0开始）</p>
+<p>要注意的是[first,nth) [nth,last)内 的大小循序还不一定</p>
+<p>只能确定iarray[nth]是第nth大的元素。</p>
+<p>当然 [first,nth) 肯定是不大于 [nth,last)的。</p>
+<p>简单测试代码如下</p>
+<p>要注意的是，此函数只是将第nth大的元素排好了位置，但并没有返回值</p>
+<p>所以要知道第nth大的元素 还得进行一步，cout&lt;&lt;iarray[nth]&lt;&lt;endl; nth既那个位子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> iarray[]=&#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">15</span>,<span class="number">89</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">52</span>,<span class="number">63</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">47</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="keyword">sizeof</span>(iarray)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">       <span class="built_in">cout</span>&lt;&lt;iarray[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    nth_element(iarray,iarray+<span class="number">6</span>,iarray+len);         <span class="comment">//排序第6个元素</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">       <span class="built_in">cout</span>&lt;&lt;iarray[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"第6-th个元素: "</span>&lt;&lt;iarray[<span class="number">6</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果：</p>
+<pre><code>5 6 15 89 7 2 1 3 52 63 12 64 47  
+5 3 1 2 6 7 12 15 47 63 52 64 89  
+第6-th个元素: 12  
+</code></pre><h2 id="is-sorted"><a href="#is-sorted" class="headerlink" title="is_sorted:"></a>is_sorted:</h2><p>is_sorted用于判断一个区间是否已经有序，和排序一样，可以自己定义比较函数。<br>但是，正如文章题目所说的一样，is_sorted是SGI<br>STL的扩展，在现在的GCC下并没有（VS下也没有），所以，为了保证代码的可移植性，最好不要使用这个函数。</p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="Partition"><a href="#Partition" class="headerlink" title=" Partition  :"></a><strong> Partition </strong> :</h2><p>作用：<br>Partition 函数用于返回一个 Variant (String)，指定一个范围，在一系列计算的范围中指定的数字出现在这个范围内。<br>函数的语法格式：<br>Partition(number, start, stop, interval)<br>Partition 函数的语法含有下面这些命名参数：部分描述<br>number必要参数。整数，在所有范围中判断这个整数是否出现。<br>start必要参数。整数，数值范围的开始值，这个数值不能小于 0。<br>stop必要参数。整数，数值范围的结束值，这个数值不能等于或小于 start。<br>说明：<br>Partition 函数会标识 number 值出现的特定范围，并返回一个 Variant (String) 来描述这个范围。<br>Partition 函数在查询中是最有用的。可以创建一个选择查询显示有多少定单落在几个变化的范围内，例如，定单数从 1 到 1000、1001 到<br>2000，以此类推。</p>
+<p>解决问题：  </p>
+<p>快速排序算法里的partition函数用来解决这样一个问题：给定一个数组arr[]和数组中任意一个元素a，重排数组使得a左边都小于它，右边都不小于它。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// arr[]为数组，start、end分别为数组第一个元素和最后一个元素的索引</span></span><br><span class="line"> <span class="comment">// povitIndex为数组中任意选中的数的索引</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> start, <span class="keyword">int</span> end, <span class="keyword">int</span> pivotIndex)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = arr[pivotIndex];</span><br><span class="line">    swap(arr[pivotIndex], arr[end]);</span><br><span class="line">    <span class="keyword">int</span> storeIndex = start;</span><br><span class="line">    <span class="comment">//这个循环比一般的写法简洁高效，呵呵维基百科上看到的</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = start; i &lt; end; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[i] &lt; pivot) &#123;</span><br><span class="line">            swap(arr[i], arr[storeIndex]);</span><br><span class="line">            ++storeIndex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr[storeIndex], arr[end]);</span><br><span class="line">    <span class="keyword">return</span> storeIndex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h2><h2 id="stable-partition："><a href="#stable-partition：" class="headerlink" title="stable_partition："></a>stable_partition：</h2><p>stable_partition 就是partition排序算法的稳定算法，区别于 sort和stable_sort的区别是一样</p>
+<h2 id="选择合适的排序函数"><a href="#选择合适的排序函数" class="headerlink" title="选择合适的排序函数"></a>选择合适的排序函数</h2><p>为什么要选择合适的排序函数？可能你并不关心效率(这里的效率指的是程序运行时间), 或者说你的数据量很小， 因此你觉得随便用哪个函数都无关紧要。</p>
+<p>其实不然，即使你不关心效率，如果你选择合适的排序函数，你会让你的代码更容易让人明白，你会让你的代码更有扩充性，逐渐养成一个良好的习惯，很重要吧 。</p>
+<p>如果你以前有用过C语言中的qsort, 想知道qsort和他们的比较，那我告诉你，qsort和sort是一样的，因为他们采用的都是快速排序。从效率上看，以下<br>几种sort算法的是一个排序，效率由高到低（耗时由小变大）：</p>
+<ol>
+<li>partion </li>
+<li>stable_partition </li>
+<li>nth_element </li>
+<li>partial_sort </li>
+<li>sort </li>
+<li>stable_sort </li>
+</ol>
+<p>Effective STL的文章, 其中对 <a href="http://stl.winterxy.com/html/000026.html" target="_blank" rel="noopener"> 如何选择排序函数 </a> 总结的很好：</p>
+<ul>
+<li>若需对vector, string, deque, 或 array容器进行全排序，你可选择sort或stable_sort； </li>
+<li>若只需对vector, string, deque, 或 array容器中取得top n的元素，部分排序partial_sort是首选. </li>
+<li>若对于vector, string, deque, 或array容器，你需要找到第n个位置的元素或者你需要得到top n且不关系top n中的内部顺序，nth_element是最理想的； </li>
+<li>若你需要从标准序列容器或者array中把满足某个条件或者不满足某个条件的元素分开，你最好使用partition或stable_partition； </li>
+<li>若使用的list容器，你可以直接使用partition和stable_partition算法，你可以使用list::sort代替sort和stable_sort排序。若你需要得到partial_sort或nth_element的排序效果，你必须间接使用。正如上面介绍的有几种方式可以选择。<br>总之记住一句话： <strong> 如果你想节约时间，不要走弯路, 也不要走多余的路! </strong></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Scott Woo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.faxiang.site/2015/01/22/C++ STL之排序函数详解/" title="C++ STL之排序函数详解">http://www.faxiang.site/2015/01/22/C++ STL之排序函数详解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/排序/" rel="tag"># 排序</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/STL/" rel="tag"># STL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/22/中国大学MOOC-翁恺-C语言程序习题第十一周/" rel="next" title="中国大学MOOC-翁恺-C语言程序习题第十一周">
+                <i class="fa fa-chevron-left"></i> 中国大学MOOC-翁恺-C语言程序习题第十一周
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/24/08-1. Talent and Virtue/" rel="prev" title="08-1. Talent and Virtue">
+                08-1. Talent and Virtue <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Scott Woo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">183.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>

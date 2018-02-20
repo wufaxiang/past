@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto:300,300italic,400,400italic,700,700italic|Yellowtail:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构,线性表," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Scott Woo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1.串：是由零个或多个字符组成的有限序列；包含字符的个数称串的长度；        2.空串：长度为零的串称空串；   空白串：由一个或多个空格组成的串称空白串；   子串：串中任意个连续字符组成的子序列称该串的子串；   主串：包含子串的串称主串；   子串的首字符在主串中首次出现的位置定义为子串在主串中的位置；">
+<meta name="keywords" content="数据结构,线性表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构复习——第四章：串、多维数组和广义表">
+<meta property="og:url" content="http://www.faxiang.site/2015/01/01/数据结构复习——第四章：串、多维数组和广义表/index.html">
+<meta property="og:site_name" content="Scott Woo">
+<meta property="og:description" content="1.串：是由零个或多个字符组成的有限序列；包含字符的个数称串的长度；        2.空串：长度为零的串称空串；   空白串：由一个或多个空格组成的串称空白串；   子串：串中任意个连续字符组成的子序列称该串的子串；   主串：包含子串的串称主串；   子串的首字符在主串中首次出现的位置定义为子串在主串中的位置；">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-12T03:05:50.744Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构复习——第四章：串、多维数组和广义表">
+<meta name="twitter:description" content="1.串：是由零个或多个字符组成的有限序列；包含字符的个数称串的长度；        2.空串：长度为零的串称空串；   空白串：由一个或多个空格组成的串称空白串；   子串：串中任意个连续字符组成的子序列称该串的子串；   主串：包含子串的串称主串；   子串的首字符在主串中首次出现的位置定义为子串在主串中的位置；">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.faxiang.site/2015/01/01/数据结构复习——第四章：串、多维数组和广义表/"/>
+
+
+
+
+
+  <title>数据结构复习——第四章：串、多维数组和广义表 | Scott Woo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Scott Woo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2015/01/01/数据结构复习——第四章：串、多维数组和广义表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Scott Woo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Scott Woo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">数据结构复习——第四章：串、多维数组和广义表</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-01T16:11:12+08:00">
+                2015-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,431
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong> 1.串：是由零个或多个字符组成的有限序列；包含字符的个数称串的长度； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 2.空串：长度为零的串称空串； </strong></p>
+<p><strong> 空白串：由一个或多个空格组成的串称空白串； </strong></p>
+<p><strong> 子串：串中任意个连续字符组成的子序列称该串的子串； </strong></p>
+<p><strong> 主串：包含子串的串称主串； </strong></p>
+<p><strong> 子串的首字符在主串中首次出现的位置定义为子串在主串中的位置； </strong><br><a id="more"></a><br><strong>   
+</strong></p>
+<p><strong> 3.空串是任意串的子串； </strong></p>
+<p><strong> 任意串是自身的子串； </strong></p>
+<p><strong> 串常量在程序中只能引用但不能改变其值； </strong></p>
+<p><strong> 串变量取值可以改变； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 4.串的基本运算 </strong></p>
+<p><strong> 1） int strlen(char*s);求串长。 </strong></p>
+<p><strong> 2） char <em>strcpy(char </em>to,char * from);串复制。 </strong></p>
+<p><strong> 3） char <em>strcat(char </em>to,char * from);串联接。 </strong></p>
+<p><strong> 4） int strcmp(char<em>s1,char </em>s2);串比较。 </strong></p>
+<p><strong> 5） char <em>strchr(char</em>s,char c);字符定位。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 5.串的存储结构： </strong></p>
+<p><strong> （1）串的顺序存储：串的顺序存储结构称顺序串。 </strong></p>
+<p><strong> 按存储分配不同分为： </strong></p>
+<p><strong> 1） 静态存储分配的顺序串： </strong></p>
+<p><strong> 直接用定长的字符数组定义，以“/0”表示串值终结。 </strong></p>
+<hr>
+<pre><code>#define maxstrsize 256
+typedef char seqstring[maxstrsize];
+seqstring s;
+不设终结符，用串长表示。
+Typedef struct{
+ Charch[maxstrsize];
+ Intlength;
+}seqstring;
+</code></pre><p><strong> 以上方式的缺点是：串值空间大小是静态的，难以适应插入、链接等操作。 </strong></p>
+<p><strong> 2） 动态存储分配的顺序串： </strong></p>
+<hr>
+<pre><code>//简单定义：
+typedef char * string;
+//复杂定义：
+typedef struct{
+    char *ch;
+    int length;
+}hstring;
+</code></pre><p><strong> （2）串的链式存储：串的链式存储结构称链串。链串由头指针唯一确定。 </strong></p>
+<p><strong> 类型定义： </strong></p>
+<hr>
+<pre><code>typedef struct node{
+    chardata;
+    struct node *next;
+}linkstrnode;
+typedef linkstrnode *linkstring;
+linkstring s;
+</code></pre><p><strong> 将结点数据域存放的字符个数定义为结点的大小。结点大小不为1的链串类型定义： </strong></p>
+<hr>
+<pre><code>#define nodesize 80
+typedef struct node{
+    chardata[nodesize];
+    struct node * next;
+}linkstrnode;
+</code></pre><hr>
+<p><strong> 6.串运算的实现 </strong></p>
+<p><strong> （1）顺序串上的子串定位运算。 </strong></p>
+<p><strong> 1）子串定位运算又称串的模式匹配或串匹配。主串称目标串；子串称模式串。 </strong></p>
+<p><strong> 2）朴素的串匹配算法。时间复杂度为O(n^2)。比较的字符总次数为（n-m+1）m。 </strong></p>
+<pre><code>int naivestrmatch(seqstring t, seqstring p)
+{
+    inti, j, k;
+    intm = p.length;
+    intn = t.length;
+    for (i = 0; i &lt;= n - m; i++){
+        j = 0; k = i;
+        while (j&lt;m&amp;&amp;t.ch[k] == p.ch[j]){
+            j++; k++;
+        }
+        if (j == m) return i;
+    }
+    return –1;
+}
+</code></pre><p><strong> （2）链串上的子串定位运算。时间复杂度为O(n^2)。比较的字符总次数为（n-m+1）m。 </strong></p>
+<hr>
+<pre><code>Linkstrnode * lilnkstrmatch(linkstring T, linkstring P)
+{
+    linkstrnode *shift, *t, *p;
+    shift = T;
+    t = shift; p = P;
+    while (t&amp;&amp;p){
+        if (t-&gt;data == p-&gt;data){
+            t = t-&gt;next;
+            p = p-&gt;next;
+        }
+        else{
+            shift = shift-&gt;next;
+            t = shift;
+            p = P;
+        }
+    }
+    if (p == NULL)
+        return shift;
+    else
+        return NULL;
+}
+</code></pre><hr>
+<p><strong> 7.多维数组：一般用顺序存储的方式表示数组。 </strong></p>
+<hr>
+<p><strong> 8.常用方式有： </strong></p>
+<p><strong> 1）行优先顺序，将数组元素按行向量排列； </strong></p>
+<p><strong> 2）列优先顺序，将数组元素按列向量排列。 </strong></p>
+<hr>
+<p><strong> 9.计算地址的函数：LOC(Aij)=LOC(Ac1c2)+((i-c1)<em>(d2-c2+1)+j-c2)</em>d </strong></p>
+<hr>
+<p><strong> 10.矩阵的压缩存储：为多个非零元素分配一个存储空间；对零元素不分配存储空间。 </strong></p>
+<p><strong> </strong> <strong> （1）对称矩阵：在一个n阶的方阵A中，元素满足Aij=Aji 0&lt;=i,j&lt;=n-1;称为对称矩阵。 </strong></p>
+<p><strong> 元素的总数为：n(n+1)/2; </strong></p>
+<p><strong> 设：I=i或j中大的一个数；J=i或j中小的一个数； </strong></p>
+<p><strong> 则：k=I*(I+1)/2+J; </strong></p>
+<p><strong> 地址计算：LOC(Aij)=LOC(sa[k])=LOC(sa[0])+k<em>d= LOC(sa[0])+ (I</em>(I+1)/2+J )*d </strong></p>
+<p><strong> </strong> <strong> （2）三角矩阵：以主对角线划分，三角矩阵有上三角和下三角；上三角的主对角线下元素均为常数c；下三角的主对角线上元素均为常数c。 </strong></p>
+<p><strong> 元素总数为：(n(n+1)/2)+1; </strong></p>
+<p><strong> 以行优先顺序存放的Aij与SA[k]的关系： </strong></p>
+<p><strong> 上三角阵：k=i*(2n-i+1)/2+j-i; </strong></p>
+<p><strong> 下三角阵：k=i*(i+1)/2+j; </strong></p>
+<p><strong> </strong> <strong> （3）对角矩阵：所有的非零元素集中在以主对角线为中心的带状区域，相邻两侧元素均为零。|i-j|&gt;(k-1)/2 </strong></p>
+<p><strong> 以行优先顺序存放的Aij与SA[k]的关系：k=2i+j; </strong></p>
+<hr>
+<p><strong> 11.稀疏矩阵：当矩阵A中有非零元素S个，且S远小于元素总数时，称为稀疏矩阵。 </strong></p>
+<p><strong> 对其压缩的方法有顺序存储和链式存储。 </strong></p>
+<p><strong> </strong> <strong> （1）三元组表：将表示稀疏矩阵的非零元素的三元组（行号、列号、值）按行或列优先的顺序排列得到的一个结点均是三元组的线性表，将该表的线性存储结构称为三元组表。其类型定义： </strong></p>
+<hr>
+<pre><code>#define maxsize 10000
+typedef int datatype;
+typedef struct{
+    inti, j;
+    datatype v;
+}trituplenode;
+typedef struct{
+    trituplenode data[maxsize];
+    intm, n, t;
+}tritupletable;
+</code></pre><p><strong> （2）带行表的三元组表：在按行优先存储的三元组表中加入一个行表记录每行的非零元素在三元组表中的起始位置。类型定义： </strong></p>
+<hr>
+<pre><code>#define maxrow 100
+typedef struct{
+    tritulpenode data[maxsize];
+    introwtab[maxrow];
+    intm, n, t;
+}rtritulpetable;
+</code></pre><hr>
+<p><strong> 12.广义表：是线性表的推广，广义表是n个元素的有限序列，元素可以是原子或一个广义表，记为LS。 </strong></p>
+<hr>
+<p><strong> 13.若元素是广义表称它为LS的子表。若广义表非空，则第一个元素称表头，其余元素称表尾。 </strong></p>
+<hr>
+<p><strong> 14.表的深度是指表展开后所含括号的层数。 </strong></p>
+<hr>
+<p><strong> 15.把与树对应的广义表称为纯表，它限制了表中成分的共享和递归； </strong></p>
+<hr>
+<p><strong> 16.允许结点共享的表称为再入表； </strong></p>
+<hr>
+<p><strong> 17.允许递归的表称为递归表； </strong></p>
+<hr>
+<p><strong> 18.相互关系：线性表∈纯表∈再入表∈递归表； </strong></p>
+<hr>
+<p><strong> 19.广义表的特殊运算： </strong></p>
+<p><strong> 1）取表头head(LS)； </strong></p>
+<p><strong> 2）取表尾tail(LS); </strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Scott Woo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.faxiang.site/2015/01/01/数据结构复习——第四章：串、多维数组和广义表/" title="数据结构复习——第四章：串、多维数组和广义表">http://www.faxiang.site/2015/01/01/数据结构复习——第四章：串、多维数组和广义表/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/线性表/" rel="tag"># 线性表</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/01/数据结构复习——第三章：栈和队列/" rel="next" title="数据结构复习——第三章：栈和队列">
+                <i class="fa fa-chevron-left"></i> 数据结构复习——第三章：栈和队列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/01/数据结构复习——第5章：树/" rel="prev" title="数据结构复习——第5章：树">
+                数据结构复习——第5章：树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Scott Woo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">183.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>

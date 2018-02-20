@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto:300,300italic,400,400italic,700,700italic|Yellowtail:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构,Tree," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Scott Woo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1.树：是n个结点的有限集T，T为空时称空树，否则满足：   1）有且仅有一个特定的称为根的结点；   2）其余结点可分为m个互不相交的子集，每个子集本身是一棵树，并称为根的子树。        2.树的表示方法：   1）树形表示法；   2）嵌套集合表示法；   3）凹入表表示法；   4）广义表表示法；">
+<meta name="keywords" content="数据结构,Tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构复习——第5章：树">
+<meta property="og:url" content="http://www.faxiang.site/2015/01/01/数据结构复习——第5章：树/index.html">
+<meta property="og:site_name" content="Scott Woo">
+<meta property="og:description" content="1.树：是n个结点的有限集T，T为空时称空树，否则满足：   1）有且仅有一个特定的称为根的结点；   2）其余结点可分为m个互不相交的子集，每个子集本身是一棵树，并称为根的子树。        2.树的表示方法：   1）树形表示法；   2）嵌套集合表示法；   3）凹入表表示法；   4）广义表表示法；">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-12T03:05:50.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构复习——第5章：树">
+<meta name="twitter:description" content="1.树：是n个结点的有限集T，T为空时称空树，否则满足：   1）有且仅有一个特定的称为根的结点；   2）其余结点可分为m个互不相交的子集，每个子集本身是一棵树，并称为根的子树。        2.树的表示方法：   1）树形表示法；   2）嵌套集合表示法；   3）凹入表表示法；   4）广义表表示法；">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.faxiang.site/2015/01/01/数据结构复习——第5章：树/"/>
+
+
+
+
+
+  <title>数据结构复习——第5章：树 | Scott Woo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Scott Woo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2015/01/01/数据结构复习——第5章：树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Scott Woo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Scott Woo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">数据结构复习——第5章：树</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-01T16:22:12+08:00">
+                2015-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,781
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong> 1.树：是n个结点的有限集T，T为空时称空树，否则满足： </strong></p>
+<p><strong> 1）有且仅有一个特定的称为根的结点； </strong></p>
+<p><strong> 2）其余结点可分为m个互不相交的子集，每个子集本身是一棵树，并称为根的子树。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 2.树的表示方法： </strong></p>
+<p><strong> 1）树形表示法； </strong></p>
+<p><strong> 2）嵌套集合表示法； </strong></p>
+<p><strong> 3）凹入表表示法； </strong></p>
+<p><strong> 4）广义表表示法； </strong><br><a id="more"></a><br><strong>   
+</strong></p>
+<p><strong> 3.一个结点拥有的子树数称为该结点的度； </strong></p>
+<p><strong> 一棵树的度是指树中结点最大的度数。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 4.度为零的结点称叶子或终端结点； </strong></p>
+<p><strong> 度不为零的结点称分支结点或非终端结点 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 5.根结点称开始结点，根结点外的分支结点称内部结点； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 6.树中某结点的子树根称该结点的孩子； </strong></p>
+<p><strong> 该结点称为孩子的双亲； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 7.树中存在一个结点序列K1，K2，…Kn，使Ki为Ki+1的双亲，则称该结点序列为K1到Kn的路径或道路； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 8.树中结点K到Ks间存在一条路径，则称K是Ks的祖先，Ks是K的子孙； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 9.结点的层数从根算起，若根的层数为1，则其余结点层数是其双亲结点层数加1； </strong></p>
+<p><strong> 双亲在同一层的结点互为堂兄弟； </strong></p>
+<p><strong> 树中结点最大层数称为树的高度或深度； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 10.树中每个结点的各个子树从左到右有次序的称有序树，否则称无序树； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 11.森林是m棵互不相交的树的集合。 </strong></p>
+<hr>
+<p><strong> 12.二叉树：是n个结点的有限集，它或为空集，或由一个根结点及两棵互不相交的、分别称为该根的左子树和右子树的二叉树组成。 </strong></p>
+<p><strong> 13.二叉树不是树的特殊情况，这是两种不同的数据结构；它与无序树和度为2的有序树不同。 </strong></p>
+<p><strong> 14.二叉树的性质： </strong></p>
+<p><strong> 1） 二叉树第i层上的结点数最多为2^(i-1)； </strong></p>
+<p><strong> 2） 深度为k的二叉树至多有2^k-1个结点； </strong></p>
+<p><strong> 3） 在任意二叉树中，叶子数为n0，度为2的结点数为n2，则n0=n2+1； </strong></p>
+<p><strong> 15.满二叉树是一棵深度为k的且有2^k-1个结点的二叉树； </strong></p>
+<p><strong> 16.完全二叉树是至多在最下两层上结点的度数可以小于2，并且最下层的结点集中在该层最左的位置的二叉树； </strong></p>
+<p><strong> 17.具有N个结点的完全二叉树的深度为log2N取整加1； </strong></p>
+<p><strong> 18.二叉树的存储结构 </strong></p>
+<p><strong> （1）顺序存储结构：把一棵有n个结点的完全二叉树，从树根起自上而下、从左到右对所有结点编号，然后依次存储在一个向量b[0~n]中，b[1~n]存放结点，b[0]存放结点总数。 </strong></p>
+<p><strong> 各个结点编号间的关系： </strong></p>
+<p><strong> 1） i=1是根结点；i&gt;1则双亲结点是i/2取整； </strong></p>
+<p><strong> 2） 左孩子是2i, 右孩子是2i+1；（要小于n） </strong></p>
+<p><strong> 3） i&gt;（n/2取整）的结点是叶子； </strong></p>
+<p><strong> 4） 奇数没有右兄弟，左兄弟是i-1； </strong></p>
+<p><strong> 5） 偶数没有左兄弟，右兄弟是i+1； </strong></p>
+<p><strong> （2）链式存储结构 </strong></p>
+<p><strong> 结点的结构为：lchild|data|rchild ；相应的类型说明： </strong></p>
+<hr>
+<pre><code>typedef char data;
+typedef struct node{
+ datatype data;
+ structnode *lchild , *rchild;
+}bintnode;
+typedef bintnode * bintree;
+</code></pre><p><strong>   
+</strong></p>
+<p><strong> 19.在二叉树中所有类型为bintnode的结点和一个指向开始结点的bintree类型的头指针构成二叉树的链式存储结构称二叉链表。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 20.二叉链表由根指针唯一确定。在n个结点的二叉链表中有2n个指针域，其中n+1个为空。 </strong></p>
+<hr>
+<p><strong> 21.二叉树的遍历方式有：前序遍历、中序遍历、后序遍历。时间复杂度为O(n)。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 22.线索二叉树：利用二叉链表中的n+1个空指针域存放指向某种遍历次序下的前趋和后继结点的指针，这种指针称线索。加线索的二叉链表称线索链表。相应二叉树称线索二叉树。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 23.线索链表结点结构：lchild|ltag|data|rtag|rchild；ltag=0,lchild是指向左孩子的指针；ltag=1,lchild是指向前趋的线索；rtag=0,rchild是指向右孩子的指针；rtag=1,rchild是指向后继的线索； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 24.查找*p在指定次序下的前趋和后继结点。算法的时间复杂度为O(h)。线索对查找前序前趋和后序后继帮助不大。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 25.遍历线索二叉树。时间复杂度为O(n)。 </strong></p>
+<hr>
+<p><strong> 26.树、森林与二叉树的转换 </strong></p>
+<p><strong> （1）树、森林与二叉树的转换 </strong></p>
+<p><strong> 1）树与二叉树的转换： </strong></p>
+<p><strong> 1}所有兄弟间连线； </strong></p>
+<p><strong> 2}保留与长子的连线，去除其它连线。 </strong></p>
+<p><strong> 该二叉树的根结点的右子树必为空。 </strong></p>
+<p><strong> 2）森林与二叉树的转换： </strong></p>
+<p><strong> 1}将所有树转换成二叉树； </strong></p>
+<p><strong> 2}将所有树根连线。 </strong></p>
+<p><strong> （2）二叉树与树、森林的转换。是以上的逆过程。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 27.树的存储结构 </strong></p>
+<p><strong> （1）双亲链表表示法：为每个结点设置一个parent指针，就可唯一表示任何一棵树。Data|parent </strong></p>
+<p><strong> （2）孩子链表表示法：为每个结点设置一个firstchild指针，指向孩子链表头指针，链表中存放孩子结点序号。Data|firstchild。 </strong></p>
+<p><strong> （3）双亲孩子链表表示法：将以上方法结合。Data|parent|firstchild </strong></p>
+<p><strong> （4）孩子兄弟链表表示法：附加两个指向左孩子和右兄弟的指针。Leftmostchild|data|rightsibling </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 28.树和森林的遍历：前序遍历一棵树等价于前序遍历对应二叉树；后序遍历等价于中序遍历对应二叉树。 </strong></p>
+<hr>
+<p><strong> 29.最优二叉树（哈夫曼树）：树的路径长度是从树根到每一结点的路径长度之和。将树中的结点赋予实数称为结点的权。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 30.结点的带权路径是该结点的路径长度与权的乘积。树的带权路径长度又称树的代价，是所有叶子的带权路径长度之和。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 31.带权路径长度最小的二叉树称最优二叉树（哈夫曼树）。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 32.具有2n-1个结点其中有n个叶子，并且没有度为1的分支结点的树称为严格二叉树。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 33.哈夫曼编码：  是一种编码方式，哈夫曼编码是可变  <a href="http://baike.baidu.com/view/731.htm" target="_blank" rel="noopener"> 字长  </a> 编码(VLC)的一种。  </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 34.对字符集编码时，要求字符集中任一字符的编码都不是其它字符的编码前缀，这种编码称前缀码。 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 35.字符出现频度与码长乘积之和称文件总长；字符出现概率与码长乘积之和称平均码长； </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 36.使文件总长或平均码长最小的前缀码称最优前缀码 </strong></p>
+<p><strong>   
+</strong></p>
+<p><strong> 37.利用哈夫曼树求最优前缀码，左为0，右为1。编码平均码长最小；没有叶子是其它叶子的祖先，不可能出现重复前缀。 </strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Scott Woo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.faxiang.site/2015/01/01/数据结构复习——第5章：树/" title="数据结构复习——第5章：树">http://www.faxiang.site/2015/01/01/数据结构复习——第5章：树/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/01/数据结构复习——第四章：串、多维数组和广义表/" rel="next" title="数据结构复习——第四章：串、多维数组和广义表">
+                <i class="fa fa-chevron-left"></i> 数据结构复习——第四章：串、多维数组和广义表
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/01/数据结构复习——第六章：图/" rel="prev" title="数据结构复习——第六章：图">
+                数据结构复习——第六章：图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Scott Woo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">183.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>

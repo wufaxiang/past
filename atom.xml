@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Scott Woo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.faxiang.site/"/>
+  <updated>2018-02-12T03:05:51.510Z</updated>
+  <id>http://www.faxiang.site/</id>
+  
+  <author>
+    <name>Scott Woo</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java并发编程（2）：Java并发编程基础</title>
+    <link href="http://www.faxiang.site/2018/02/12/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%EF%BC%882%EF%BC%89%EF%BC%9AJava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <id>http://www.faxiang.site/2018/02/12/Java并发编程（2）：Java并发编程基础/</id>
+    <published>2018-02-12T03:05:51.509Z</published>
+    <updated>2018-02-12T03:05:51.510Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-线程简介&quot;&gt;&lt;a href=&quot;#1-线程简介&quot; class=&quot;headerlink&quot; title=&quot;1. 线程简介&quot;&gt;&lt;/a&gt;1. 线程简介&lt;/h2&gt;&lt;p&gt;现代操作系统调度的最小单元是线程，也叫轻量级进程，在一个进程中可以创建多个线程，并且线程之间可以访问共享的内存变量。处理器在这些线程上高速切换，因此我们感觉这些线程在同时执行。&lt;/p&gt;
+&lt;h3 id=&quot;1-1-为什么要使用多线程？&quot;&gt;&lt;a href=&quot;#1-1-为什么要使用多线程？&quot; class=&quot;headerlink&quot; title=&quot;1.1 为什么要使用多线程？&quot;&gt;&lt;/a&gt;1.1 为什么要使用多线程？&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;更多的处理核心&lt;/li&gt;
+&lt;li&gt;更快的响应时间&lt;/li&gt;
+&lt;li&gt;更好的编程模型&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Java并发编程" scheme="http://www.faxiang.site/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="http://www.faxiang.site/tags/Java/"/>
+    
+      <category term="并发编程" scheme="http://www.faxiang.site/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java并发编程（1）：并发编程的挑战</title>
+    <link href="http://www.faxiang.site/2018/02/12/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(1)%EF%BC%9A%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E6%8C%91%E6%88%98/"/>
+    <id>http://www.faxiang.site/2018/02/12/Java并发编程(1)：并发编程的挑战/</id>
+    <published>2018-02-12T03:05:51.480Z</published>
+    <updated>2018-02-12T03:05:51.481Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;并发编程目的是为了让程序运行的更快，但是并不是启动更多的线程就能让程序最大程度地并发运行。在并发编程时，会面临很多的挑战，下面介绍三种。&lt;/p&gt;
+&lt;h2 id=&quot;1-上下文切换&quot;&gt;&lt;a href=&quot;#1-上下文切换&quot; class=&quot;headerlink&quot; title=&quot;1. 上下文切换&quot;&gt;&lt;/a&gt;1. 上下文切换&lt;/h2&gt;&lt;p&gt;即使是单核CPU也可以支持多线程执行代码，CPU通过给每个CPU时间片来实现这个机制。时间片是CPU分配给每个线程的时间，因为非常短，所以CPU通过切换线程执行，感觉就是多个线程是同时执行的。任务从保存到再加载的过程就是一次上下文切换。由于线程之间的不停切换所带来的开销，所以可能会比串形执行更慢。&lt;/p&gt;
+&lt;p&gt;要加快程序并发运行的速度，解决方案就是减少上下文切换。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java并发编程" scheme="http://www.faxiang.site/categories/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="http://www.faxiang.site/tags/Java/"/>
+    
+      <category term="并发编程" scheme="http://www.faxiang.site/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&lt;转载&gt;&quot;区块链-新经济蓝图及导读&quot;读书笔记</title>
+    <link href="http://www.faxiang.site/2018/02/12/%E5%8C%BA%E5%9D%97%E9%93%BE-%E6%96%B0%E7%BB%8F%E6%B5%8E%E8%93%9D%E5%9B%BE%E5%8F%8A%E5%AF%BC%E8%AF%BB%22%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>http://www.faxiang.site/2018/02/12/区块链-新经济蓝图及导读&quot; 读书笔记/</id>
+    <published>2018-02-12T03:05:50.611Z</published>
+    <updated>2018-02-12T03:05:50.611Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近迷上了《冰与火之歌》，有一句话“Most men would rather deny a hard truth than face it”，宁愿否认事实也不愿面对真相。面对如真理般存在的游戏规则，屌丝玩家们一边喝着鸡汤一边如鸵鸟般奔跑。规则是上帝和凯撒的事，也许很久以后，规则会被重写，一切能被重构，“每个认真生活的人都值得被认真对待”，但那也是遥远的将来。作为低情商理工男，因为不懂组织和人性，也曾天真的幻想着也许未来的某种技术会承担起这样的职责。虽然技术、工具总是双刃剑，不可能非黑即白，不能简单的以好坏论之，也许是冰，也许是火，更可能是冰火交融，可是你知道，龙和异鬼的游戏规则至少比铁王座简单的多。﻿&lt;/p&gt;
+&lt;p&gt;比特币火了，又冷了，区块链又火了……除了其技术理论，其中的哲学味道更令人着迷，面对万分之一的可能性，积极的悲观主义者愿意站在鸡蛋的那一边，或许是昙花一现的幻象，又或许是第一张多米诺骨牌，愿如STARK家族箴言所说：“Winter Is Coming”。﻿&lt;br&gt;
+    
+    </summary>
+    
+      <category term="区块链" scheme="http://www.faxiang.site/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    
+      <category term="区块链" scheme="http://www.faxiang.site/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以太坊（四）：以太坊的账户类型和交易</title>
+    <link href="http://www.faxiang.site/2017/01/04/ethereum_4/"/>
+    <id>http://www.faxiang.site/2017/01/04/ethereum_4/</id>
+    <published>2017-01-04T13:57:12.000Z</published>
+    <updated>2018-02-12T03:05:51.282Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;账户类型和交易&quot;&gt;&lt;a href=&quot;#账户类型和交易&quot; class=&quot;headerlink&quot; title=&quot;账户类型和交易&quot;&gt;&lt;/a&gt;账户类型和交易&lt;/h2&gt;&lt;p&gt;在 Ethereum 中有两种类型的账户：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;常规账户或者叫外部控制账户（我们前面用命令创建的账户）&lt;/li&gt;
+&lt;li&gt;合约账户（如代码段，一个类）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这两种账户它们都有自己的以太币余额。&lt;/p&gt;
+&lt;p&gt;这两种账户都可以发起交易，虽然合约账户仅仅只能响应他们收到的其他交易。因此，以太坊区块链中的所有操作都是通过外部账号发起交易来执行的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/categories/Ethereum/"/>
+    
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/tags/Ethereum/"/>
+    
+      <category term="geth" scheme="http://www.faxiang.site/tags/geth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以太坊（三）：挖矿</title>
+    <link href="http://www.faxiang.site/2017/01/02/ethereum_3/"/>
+    <id>http://www.faxiang.site/2017/01/02/ethereum_3/</id>
+    <published>2017-01-02T15:49:12.000Z</published>
+    <updated>2018-02-12T03:05:51.270Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在以太坊中挖矿可以有两种方式，CPU挖矿和GPU挖矿。&lt;br&gt;在以太坊的第一版本 Frontier 中，如果你想要进行挖矿，你需要一个GPU一个以太坊客户端比如Geth，但是CPU挖矿的效率不是很好。&lt;/p&gt;
+&lt;p&gt;Geth客户端仅仅包含一个CPU矿工分支，虽然有团队在测试GPU矿工分支，但它不属于 Frontier 的一部分了。&lt;/p&gt;
+&lt;p&gt;而 Ethereum 的 C++ 实现同时提供 GPU 矿工分支， 它们都是其的一部分。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/categories/Ethereum/"/>
+    
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/tags/Ethereum/"/>
+    
+      <category term="geth" scheme="http://www.faxiang.site/tags/geth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以太坊（二）：账户管理</title>
+    <link href="http://www.faxiang.site/2017/01/02/ethereum_2/"/>
+    <id>http://www.faxiang.site/2017/01/02/ethereum_2/</id>
+    <published>2017-01-02T13:40:12.000Z</published>
+    <updated>2018-02-12T03:05:51.248Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1. 概述&quot;&gt;&lt;/a&gt;1. 概述&lt;/h2&gt;&lt;p&gt;Geth客户端的账户管理是通过一下命令行来对账户进行管理的：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;account command [arguments...]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过以上的命令行形式，可以创建新的账户，查看所有账户，给账户分配一个私钥，更新最新的密钥形式和更改账户密码这些操作。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/categories/Ethereum/"/>
+    
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/tags/Ethereum/"/>
+    
+      <category term="geth" scheme="http://www.faxiang.site/tags/geth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以太坊（一）：以太坊安装</title>
+    <link href="http://www.faxiang.site/2017/01/02/ethereum_1/"/>
+    <id>http://www.faxiang.site/2017/01/02/ethereum_1/</id>
+    <published>2017-01-02T12:21:12.000Z</published>
+    <updated>2018-02-12T03:05:51.233Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以太坊有各种的客户端，go，c++等等，本文使用的是go语言客户端go-ethereum，它也是目前使用最广泛的以太坊客户端。&lt;/p&gt;
+&lt;h2 id=&quot;linux平台&quot;&gt;&lt;a href=&quot;#linux平台&quot; class=&quot;headerlink&quot; title=&quot;linux平台&quot;&gt;&lt;/a&gt;linux平台&lt;/h2&gt;&lt;p&gt;以本人使用的 ubuntu16.04 LST 版本为例，其他的请查看&lt;a href=&quot;https://github.com/ethereum/go-ilding-Ethereum&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;依次运行一下命令可完成go客户端geth的安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/categories/Ethereum/"/>
+    
+    
+      <category term="Ethereum" scheme="http://www.faxiang.site/tags/Ethereum/"/>
+    
+      <category term="geth" scheme="http://www.faxiang.site/tags/geth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>solidity学习之深入理解solidity--合约结构</title>
+    <link href="http://www.faxiang.site/2016/12/03/solidity%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3solidity--%E5%90%88%E7%BA%A6%E7%BB%93%E6%9E%84/"/>
+    <id>http://www.faxiang.site/2016/12/03/solidity学习之深入理解solidity--合约结构/</id>
+    <published>2016-12-03T06:36:12.000Z</published>
+    <updated>2018-02-12T03:05:52.052Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;solidity合约与类对象非常的相似，每个合约可以包含（ 状态变量, 函数, 函数修饰符, 时间, 结构体类型和枚举类型）的定义。&lt;/p&gt;
+&lt;h2 id=&quot;状态变量&quot;&gt;&lt;a href=&quot;#状态变量&quot; class=&quot;headerlink&quot; title=&quot;状态变量&quot;&gt;&lt;/a&gt;状态变量&lt;/h2&gt;&lt;p&gt;状态变量是合约存储器中永久储存的值。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pragma solidity ^0.4.0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;contract SimpleStorage &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uint storedData; // State variable&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    // ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="solidity" scheme="http://www.faxiang.site/categories/solidity/"/>
+    
+    
+      <category term="solidity" scheme="http://www.faxiang.site/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>solidity学习之深入理解solidity--solidity源文件布局</title>
+    <link href="http://www.faxiang.site/2016/12/03/solidity%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3solidity--%E4%B8%80%E4%B8%AAsolidity%E6%BA%90%E6%96%87%E4%BB%B6%E7%9A%84%E5%B8%83%E5%B1%80/"/>
+    <id>http://www.faxiang.site/2016/12/03/solidity学习之深入理解solidity--一个solidity源文件的布局/</id>
+    <published>2016-12-03T06:05:12.000Z</published>
+    <updated>2018-02-12T03:05:52.073Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;源文件可以包含多个合约的定义，包括指令和标识指令。&lt;/p&gt;
+&lt;h2 id=&quot;版本标识&quot;&gt;&lt;a href=&quot;#版本标识&quot; class=&quot;headerlink&quot; title=&quot;版本标识&quot;&gt;&lt;/a&gt;版本标识&lt;/h2&gt;&lt;p&gt;源文件可以通过所谓的版本标识进行注释，以此来拒绝将来可能引起不兼容的编译版本。我们试图将这种变化保持在最小值，尤其是在句法中语义的改变，当然这不是总会发生的。因此，对于包含中断改变（breaking changes）的版本，读版本变化日志总是好的，这些版本将以&lt;code&gt;0.x.0&lt;/code&gt;或者 &lt;code&gt;x.0.0.&lt;/code&gt;这样的形式。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="solidity" scheme="http://www.faxiang.site/categories/solidity/"/>
+    
+    
+      <category term="solidity" scheme="http://www.faxiang.site/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>solidity学习之solidity实例</title>
+    <link href="http://www.faxiang.site/2016/12/03/solidity%E5%AD%A6%E4%B9%A0--solidity%E4%BE%8B%E5%AD%90/"/>
+    <id>http://www.faxiang.site/2016/12/03/solidity学习--solidity例子/</id>
+    <published>2016-12-03T02:23:12.000Z</published>
+    <updated>2018-02-12T03:05:52.044Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;投票&quot;&gt;&lt;a href=&quot;#投票&quot; class=&quot;headerlink&quot; title=&quot;投票&quot;&gt;&lt;/a&gt;投票&lt;/h2&gt;&lt;p&gt;下面的合约是非常复杂的，但是展示了大量的solidity的功能。它实现了一个投票合约。当然，电子投票的主要问题是如何为正确的人分为投票权利和如何防止暗箱操作，我们在这里不会解决所有的问题，但至少我们将会展示如何在自动计票和完全透明的同时委派投票。&lt;/p&gt;
+&lt;p&gt;想法是为每一张选票创建一个合约，为每个投票选项提供一个简短的名字，然后合约的创建者会作为主持人来给予每个投票参与人的地址单独投票的权利。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="solidity" scheme="http://www.faxiang.site/categories/solidity/"/>
+    
+    
+      <category term="solidity" scheme="http://www.faxiang.site/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>solidity学习之安装solidity</title>
+    <link href="http://www.faxiang.site/2016/12/02/solidity%E5%AD%A6%E4%B9%A0--%E5%AE%89%E8%A3%85solidity/"/>
+    <id>http://www.faxiang.site/2016/12/02/solidity学习--安装solidity/</id>
+    <published>2016-12-02T11:04:12.000Z</published>
+    <updated>2018-02-12T03:05:52.027Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;版本控制&quot;&gt;&lt;a href=&quot;#版本控制&quot; class=&quot;headerlink&quot; title=&quot;版本控制&quot;&gt;&lt;/a&gt;版本控制&lt;/h2&gt;&lt;p&gt;　　solidity的版本控制遵循&lt;a href=&quot;http://semver.org/lang/zh-CN/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;语义化版本控制规范&lt;/a&gt;进行发布，使用旧版本也是可行的。但是旧版本有部分地方不能保证一定有效，它们可能会包含无证或者不好的变化。我们推荐使用最新版本。下面的安装包将使用最新版本。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="solidity" scheme="http://www.faxiang.site/categories/solidity/"/>
+    
+    
+      <category term="solidity" scheme="http://www.faxiang.site/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>以太坊白皮书</title>
+    <link href="http://www.faxiang.site/2016/11/22/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6/"/>
+    <id>http://www.faxiang.site/2016/11/22/以太坊白皮书/</id>
+    <published>2016-11-22T14:55:12.000Z</published>
+    <updated>2018-02-12T03:05:50.936Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　当中本聪在2009年1月启动比特币区块链时，他同时向世界引入了两种未经测试的革命性的新概念。第一种就是比特币（bitcoin），一种去中心化的点对点的网上货币，在没有任何资产担保、内在价值或者中心发行者的情况下维持着价值。到目前为止，比特币已经吸引了大量的公众注意力, 就政治方面而言它是一种没有中央银行的货币并且有着剧烈的价格波动。然而，中本聪的伟大试验还有与比特币同等重要的一部分：基于工作量证明的区块链概念使得人们可以就交易顺序达成共识。作为应用的比特币可以被描述为一个先申请（first-to-file）系统：如果某人有50BTC并且同时向A和B发送这50BTC，只有被首先被确认的交易才会生效。没有固有方法可以决定两笔交易哪一笔先到，这个问题阻碍了去中心化数字货币的发展许多年。中本聪的区块链是第一个可靠的去中心化解决办法。现在，开发者们的注意力开始迅速地转向比特币技术的第二部分，区块链怎样应用于货币以外的领域。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="以太坊" scheme="http://www.faxiang.site/categories/%E4%BB%A5%E5%A4%AA%E5%9D%8A/"/>
+    
+    
+      <category term="以太坊" scheme="http://www.faxiang.site/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>知乎回答转载--如何简单易懂的介绍区块链</title>
+    <link href="http://www.faxiang.site/2016/11/13/%E5%A6%82%E4%BD%95%E7%AE%80%E5%8D%95%E6%98%93%E6%87%82%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    <id>http://www.faxiang.site/2016/11/13/如何简单易懂的介绍区块链/</id>
+    <published>2016-11-13T08:48:12.000Z</published>
+    <updated>2018-02-12T03:05:50.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　今天逛知乎时，看到这样一个问题“如何简单易懂地介绍区块链？”，近期自己正在学习区块链，发现第一个回答很好，于是就转过来了。原链接:&lt;a href=&quot;https://www.zhihu.com/question/37290469&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;区块链是什么，如何简单易懂地介绍区块链？&lt;/a&gt;作者@&lt;a href=&quot;https://www.zhihu.com/people/wang-le-1993&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;汪乐-LaiW3n&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;总览&quot;&gt;&lt;a href=&quot;#总览&quot; class=&quot;headerlink&quot; title=&quot;总览&quot;&gt;&lt;/a&gt;总览&lt;/h2&gt;&lt;p&gt;　　区块链其本质上是一个去中心化的分布式账本数据库，本身则是一串使用密码学相关联所产生的数据块组成的链表，每一个数据块中包含了多次网络交易有效确认的信息。&lt;br&gt;这是区块链的定义，因此要逐步了解区块链，我们需要一步步了解如下东西。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="区块链" scheme="http://www.faxiang.site/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    
+      <category term="区块链" scheme="http://www.faxiang.site/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>区块链学习--区块链介绍</title>
+    <link href="http://www.faxiang.site/2016/11/12/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0--%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://www.faxiang.site/2016/11/12/区块链学习--区块链介绍/</id>
+    <published>2016-11-12T07:12:12.000Z</published>
+    <updated>2018-02-12T03:05:50.619Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;区块链，被誉为金融科技（Fintech）领域的一项革命性创新。并且区块链技术可能在未来十年，给金融业和其它行业带来巨大改变。&lt;/p&gt;
+&lt;h2 id=&quot;从比特币到区块链&quot;&gt;&lt;a href=&quot;#从比特币到区块链&quot; class=&quot;headerlink&quot; title=&quot;从比特币到区块链&quot;&gt;&lt;/a&gt;从比特币到区块链&lt;/h2&gt;&lt;p&gt;要谈区块链，我们总是会联想到比特币，因为区块链来源于比特币，它是比特币的底层的实现技术。而随着比特币的成功，人们逐渐的将注意力放在了比特币的实现思想和背后技术上，发现区块链的去中心化思想具有着非常大的应用价值，它不只是只能运用于比特币和金融领域，如果能挖掘出它的更多价值，它将同样能对征信、物联网、经济贸易结算、资产管理等众多领域带来革命性的变化。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="区块链" scheme="http://www.faxiang.site/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+    
+      <category term="区块链" scheme="http://www.faxiang.site/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+    
+      <category term="比特币" scheme="http://www.faxiang.site/tags/%E6%AF%94%E7%89%B9%E5%B8%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Solidity学习之智能合约介绍</title>
+    <link href="http://www.faxiang.site/2016/11/09/solidity--%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://www.faxiang.site/2016/11/09/solidity--智能合约介绍/</id>
+    <published>2016-11-09T10:53:12.000Z</published>
+    <updated>2018-02-12T03:05:52.002Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一个简单的智能合约&quot;&gt;&lt;a href=&quot;#一个简单的智能合约&quot; class=&quot;headerlink&quot; title=&quot;一个简单的智能合约&quot;&gt;&lt;/a&gt;一个简单的智能合约&lt;/h2&gt;&lt;p&gt;我们先从一个最基础的例子开始，如果你现在不能全部理解是没有关系的，后面我们会进行深入的学习。&lt;/p&gt;
+&lt;h3 id=&quot;存储（Storage）&quot;&gt;&lt;a href=&quot;#存储（Storage）&quot; class=&quot;headerlink&quot; title=&quot;存储（Storage）&quot;&gt;&lt;/a&gt;存储（Storage）&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pragma solidity ^0.4.0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;contract SimpleStorage &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    uint storedData;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    function set(uint x) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        storedData = x;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    function get() constant returns (uint retVal) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return storedData;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们可以简单的看出，第一行就是告诉我们这个源码是使用solidity编写，并且适用于0.4.0及新的版本（不超过0.5.0），这样是为了确保这个合约编译时不会突然产生歧义。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="solidity" scheme="http://www.faxiang.site/categories/solidity/"/>
+    
+    
+      <category term="智能合约" scheme="http://www.faxiang.site/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
+    
+      <category term="solidity" scheme="http://www.faxiang.site/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>心情随笔</title>
+    <link href="http://www.faxiang.site/2016/09/25/%E9%9A%8F%E7%AC%94/"/>
+    <id>http://www.faxiang.site/2016/09/25/随笔/</id>
+    <published>2016-09-25T12:55:12.000Z</published>
+    <updated>2018-02-12T03:05:50.854Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;这段时间，经历过失落，经历过绝望，几经波折，所幸柳暗花明，实现了自己最初的目标—ZJU。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;准备推免的这几个月，很是艰辛，这一年，人生的酸甜苦辣好像都有经历了遍。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://www.faxiang.site/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="blog" scheme="http://www.faxiang.site/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1055. 集体照</title>
+    <link href="http://www.faxiang.site/2016/07/15/1055.%20%E9%9B%86%E4%BD%93%E7%85%A7/"/>
+    <id>http://www.faxiang.site/2016/07/15/1055. 集体照/</id>
+    <published>2016-07-15T15:25:12.000Z</published>
+    <updated>2018-02-12T03:05:50.435Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;拍集体照时队形很重要，这里对给定的N个人K排的队形设计排队规则如下：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;每排人数为N/K（向下取整），多出来的人全部站在最后一排；&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;后排所有人的个子都不比前排任何人矮；&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;每排中最高者站中间（中间位置为m/2+1，其中m为该排人数，除法向下取整）；&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;每排其他人以中间人为轴，按身高非增序，先右后左交替入队站在中间人的两侧（例如5人身高为190、188、186、175、170，则队形为175、188、190、186、170。这里假设你面对拍照者，所以你的左边是中间人的右边）；&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;若多人身高相同，则按名字的字典序升序排列。这里保证无重名。&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;现给定一组拍照人，请编写程序输出他们的队形。&lt;/p&gt;
+&lt;p&gt;输入格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;每个输入包含1个测试用例。每个测试用例第1行给出两个正整数N（&amp;lt;=10000，总人数）和K（&amp;lt;=10，总排数）。随后N行，每行给出一个人的名字（不包含空格、长度不超过8个英文字母）和身高（[30, 300]区间内的整数）。&lt;/p&gt;
+&lt;p&gt;输出格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;输出拍照的队形。即K排人名，其间以空格分隔，行末不得有多余空格。注意：假设你面对拍照者，后排的人输出在上方，前排输出在下方。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PAT(B)" scheme="http://www.faxiang.site/categories/PAT-B/"/>
+    
+    
+      <category term="PAT" scheme="http://www.faxiang.site/tags/PAT/"/>
+    
+      <category term="数据结构" scheme="http://www.faxiang.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1054. 求平均值</title>
+    <link href="http://www.faxiang.site/2016/07/15/1054.%20%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/"/>
+    <id>http://www.faxiang.site/2016/07/15/1054. 求平均值/</id>
+    <published>2016-07-15T15:24:12.000Z</published>
+    <updated>2018-02-12T03:05:50.419Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;本题的基本要求非常简单：给定N个实数，计算它们的平均值。但复杂的是有些输入数据可能是非法的。一个“合法”的输入是[-1000，1000]区间内的实数，并且最多精确到小数点后2位。当你计算平均值的时候，不能把那些非法的数据算在内。&lt;/p&gt;
+&lt;p&gt;输入格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;输入第一行给出正整数N（&amp;lt;=100）。随后一行给出N个正整数，数字间以一个空格分隔。&lt;/p&gt;
+&lt;p&gt;输出格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;对每个非法输入，在一行中输出“ERROR: X is not a legal number”，其中X是输入。最后在一行中输出结果：“The average of K numbers is Y”，其中K是合法输入的个数，Y是它们的平均值，精确到小数点后2位。如果平均值无法计算，则用“Undefined”替换Y。如果K为1，则输出“The average of 1 number is Y”。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PAT(B)" scheme="http://www.faxiang.site/categories/PAT-B/"/>
+    
+    
+      <category term="PAT" scheme="http://www.faxiang.site/tags/PAT/"/>
+    
+      <category term="数据结构" scheme="http://www.faxiang.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1053. 住房空置率</title>
+    <link href="http://www.faxiang.site/2016/07/15/1053.%20%E4%BD%8F%E6%88%BF%E7%A9%BA%E7%BD%AE%E7%8E%87/"/>
+    <id>http://www.faxiang.site/2016/07/15/1053. 住房空置率/</id>
+    <published>2016-07-15T15:23:12.000Z</published>
+    <updated>2018-02-12T03:05:50.400Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在不打扰居民的前提下，统计住房空置率的一种方法是根据每户用电量的连续变化规律进行判断。判断方法如下：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;在观察期内，若存在超过一半的日子用电量低于某给定的阈值e，则该住房为“可能空置”；&lt;br&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;若观察期超过某给定阈值D天，且满足上一个条件，则该住房为“空置”。&lt;br&gt;&amp;emsp;&amp;emsp;现给定某居民区的住户用电量数据，请你统计“可能空置”的比率和“空置”比率，即以上两种状态的住房占居民区住房总套数的百分比。&lt;/p&gt;
+&lt;p&gt;输入格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;输入第一行给出正整数N（&amp;lt;=1000），为居民区住房总套数；正实数e，即低电量阈值；正整数D，即观察期阈值。随后N行，每行按以下格式给出一套住房的用电量数据：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;K E1 E2 … EK&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;其中K为观察的天数，Ei为第i天的用电量。&lt;/p&gt;
+&lt;p&gt;输出格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在一行中输出“可能空置”的比率和“空置”比率的百分比值，其间以一个空格分隔，保留小数点后1位。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PAT(B)" scheme="http://www.faxiang.site/categories/PAT-B/"/>
+    
+    
+      <category term="PAT" scheme="http://www.faxiang.site/tags/PAT/"/>
+    
+      <category term="数据结构" scheme="http://www.faxiang.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1052. 卖个萌</title>
+    <link href="http://www.faxiang.site/2016/07/15/1052.%20%E5%8D%96%E4%B8%AA%E8%90%8C/"/>
+    <id>http://www.faxiang.site/2016/07/15/1052. 卖个萌/</id>
+    <published>2016-07-15T15:22:12.000Z</published>
+    <updated>2018-02-12T03:05:50.379Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;萌萌哒表情符号通常由“手”、“眼”、“口”三个主要部分组成。简单起见，我们假设一个表情符号是按下列格式输出的：&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;p&gt;[左手] ( [左眼][口][右眼] ) [右手]&lt;/p&gt;&lt;/center&gt;&lt;br&gt;&amp;emsp;&amp;emsp;现给出可选用的符号集合，请你按用户的要求输出表情。&lt;/p&gt;
+&lt;p&gt;输入格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;输入首先在前三行顺序对应给出手、眼、口的可选符号集。每个符号括在一对方括号[]内。题目保证每个集合都至少有一个符号，并不超过10个符号；每个符号包含1到4个非空字符。之后一行给出一个正整数K，为用户请求的个数。随后K行，每行给出一个用户的符号选择，顺序为左手、左眼、口、右眼、右手——这里只给出符号在相应集合中的序号（从1开始），数字间以空格分隔。&lt;/p&gt;
+&lt;p&gt;输出格式：&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;对每个用户请求，在一行中输出生成的表情。若用户选择的序号不存在，则输出“Are you kidding me? @\/@”。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PAT(B)" scheme="http://www.faxiang.site/categories/PAT-B/"/>
+    
+    
+      <category term="PAT" scheme="http://www.faxiang.site/tags/PAT/"/>
+    
+      <category term="数据结构" scheme="http://www.faxiang.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+</feed>

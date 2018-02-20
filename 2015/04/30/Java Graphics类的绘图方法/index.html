@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto:300,300italic,400,400italic,700,700italic|Yellowtail:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Scott Woo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Graphics类提供基本的几何图形绘制方法，主要有：画线段、画矩形、画圆、画带颜色的图形、画椭圆、画圆弧、画多边形等。    1. 画线 在窗口画一条线段，可以使用Graphics类的drawLine()方法：drawLine(int x1,int y1,int x2,int y2)例如，以下代码在点（3,3）与点（50,50）之间画线段，在点（100,100）处画一个点。    g.drawL">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Graphics类的绘图方法">
+<meta property="og:url" content="http://www.faxiang.site/2015/04/30/Java Graphics类的绘图方法/index.html">
+<meta property="og:site_name" content="Scott Woo">
+<meta property="og:description" content="Graphics类提供基本的几何图形绘制方法，主要有：画线段、画矩形、画圆、画带颜色的图形、画椭圆、画圆弧、画多边形等。    1. 画线 在窗口画一条线段，可以使用Graphics类的drawLine()方法：drawLine(int x1,int y1,int x2,int y2)例如，以下代码在点（3,3）与点（50,50）之间画线段，在点（100,100）处画一个点。    g.drawL">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-12T03:05:51.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java Graphics类的绘图方法">
+<meta name="twitter:description" content="Graphics类提供基本的几何图形绘制方法，主要有：画线段、画矩形、画圆、画带颜色的图形、画椭圆、画圆弧、画多边形等。    1. 画线 在窗口画一条线段，可以使用Graphics类的drawLine()方法：drawLine(int x1,int y1,int x2,int y2)例如，以下代码在点（3,3）与点（50,50）之间画线段，在点（100,100）处画一个点。    g.drawL">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.faxiang.site/2015/04/30/Java Graphics类的绘图方法/"/>
+
+
+
+
+
+  <title>Java Graphics类的绘图方法 | Scott Woo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Scott Woo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2015/04/30/Java Graphics类的绘图方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Scott Woo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Scott Woo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Java Graphics类的绘图方法</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-30T21:32:12+08:00">
+                2015-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,568
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Graphics类提供基本的几何图形绘制方法，主要有：画线段、画矩形、画圆、画带颜色的图形、画椭圆、画圆弧、画多边形等。  </p>
+<p><strong> 1. 画线 </strong><br>在窗口画一条线段，可以使用Graphics类的drawLine()方法：<br>drawLine(int x1,int y1,int x2,int y2)<br>例如，以下代码在点（3,3）与点（50,50）之间画线段，在点（100,100）处画一个点。  </p>
+<pre>
+g.drawLine(3,3,50,50);//画一条线段  
+g.drawLine(100,100,100,100);//画一个点。
+</pre>
+  <a id="more"></a>
+** 2. 画矩形 **   
+有两种矩形：普通型和圆角型。  
+(1) 画普通矩形有两个方法：
+
+  * drawRect(int x,int y,int width,int height)：画线框围起来的矩形。其中参数x和y指定左上角的位置，参数width和height是矩形的宽和高。 
+  * fillRect(int x,int y,int width,int height)：是用预定的颜色填充一个矩形，得到一个着色的矩形块。 
+以下代码是画矩形的例子： 
+<pre>
+g.drawRect(80,100,40,25);//画线框  
+g.setColor(Color.yellow);g.fillRect(20,70,20,30);//画着色块  
+</pre>
+(2)画圆角矩形也有两个方法：
+
+  * drawRoundRect(int x,int y,int width, int height, int arcWidth, int arcHeight)：是用线围起来的圆角矩形。其中参数x和y指定矩形左上角的位置；参数width和heigth是矩形的宽和高；arcWidth和arcHeight分别是圆角弧的横向直径和圆角弧的纵向直径。 
+  * fillRoundRect(int x,int y,int width,int height,int arcWidth,int archeight)：是用预定的颜色填充的圆角矩形。各参数的意义同前一个方法。 
+以下代码是画矩形的例子：
+<pre>
+g.drawRoundRect(10,10,150,70,40,25);//画一个圆角矩形  
+g.setColor(Color.blue); g.fillRoundRect(80,100,100,100,60,40);//涂一个圆角矩形块  
+g.drawRoundRect(10,150,40,40,40,40);//画圆  
+g.setColor(Color.red); g.fillRoundRect(80,100,100,100,100,100);//画圆块 
+</pre>
+可以用画圆角矩形方法画圆形，当矩形的宽和高相等，圆角弧的横向直径和圆角弧的纵向直径也相等，并等于矩形的宽和高时，画的就是圆形。参见上述例子中的注释，前一个是
+画圆，后一个是涂圆块。  
+
+** 3. 画三维矩形 **   
+画三维矩形有两个方法：
+
+  * draw3DRect(int x,int y,int width,int height, boolean raised)：画一个突出显示的矩形。其中x和y指定矩形左上角的位置，参数width和height是矩形的宽和高，参数raised是突出与否。 
+  * fill3DRect(int x,int y,int width,int height,boolean raised)：用预定的颜色填充一个突出显示的矩形。 
+以下代码是画突出矩形的例子：  
+g.draw3DRect(80,100,40,25,true);//画一个线框  
+g.setColor(Color.yellow); g.fill3DRect(20,70,20,30,true);//画一个着色块  
+
+** 4.画椭圆形 **   
+椭圆形由椭圆的横轴和纵轴确定。画椭圆形有两个方法：
+
+  * drawOval(int x,int y,int width,int height)：是画用线围成的椭圆形。其中参数x和参数y指定椭圆形左上角的位置，参数width和height是横轴和纵轴。 
+  * fillOval(int x,int y,int width,int height)：是用预定的颜色填充的椭圆形，是一个着色块。也可以用画椭圆形方法画圆形，当横轴和纵轴相等时，所画的椭圆形即为圆形。 
+以下代码是画椭圆形的例子：
+<pre>
+g.drawOval(10,10,60,120);//画椭圆  
+g.setColor(Color.cyan);g.fillOval(100,30,60,60);//涂圆块  
+g.setColor(Color.magenta);g.fillOval(15,140,100,50);//涂椭圆  
+</pre>
+** 5\. 画圆弧 **   
+画圆弧有两个方法：
+
+  * drawArc(int x,int y,int width,int height,int startAngle, int arcAngle)：画椭圆一部分的圆弧线。椭圆的中心是它的外接矩形的中心，其中参数是外接矩形的左上角坐标(x,y)，宽是width，高是heigh。参数startAngle的单位是 “度”，起始角度0度是指3点钟方位.参数startAngle和arcAngle表示从startAngle角度开始，逆时针方向画arcAngle度的弧，约定，正值度数是逆时针方向，负值度数是顺时针方向，例如-90度是6点钟方位。 
+  * fillArc(int x,int y,int width, int height, int startAngle, int arcAngle)：用setColor()方法设定的颜色,画着色椭圆的一部分。 
+以下代码是画圆弧的例子：  
+<pre>
+g.drawArc(10,40,90,50,0,180);//画圆弧线  
+g.drawArc(100,40,90,50,180,180);//画圆弧线  
+g.setColor(Color.yellow); g.fillArc(10,100,40,40,0,-270);//填充缺右上角的四分之三的椭圆  
+g.setColor(Color.green); g.fillArc(60,110,110,60,-90,-270);//填充缺左下角的四分之三的椭圆  
+</pre>
+** 6. 画多边形 **   
+多边形是用多条线段首尾连接而成的封闭平面图。多边形线段端点的x坐标和y坐标分别存储在两个数组中，画多边形就是按给定的坐标点顺序用直线段将它们连起来。以下是画
+多边形常用的两个方法：
+
+  * drawPolygon(int xpoints[],int yPoints[],int nPoints)：画一个多边形 
+  * fillPolygon(int xPoints[],int yPoints[],int nPoints)：用方法setColor()设定的颜色着色多边形。其中数组xPoints[]存储x坐标点，yPoints[]存储y坐标点，nPoints是坐标点个数。 
+
+注意，上述方法并不自动闭合多边形，要画一个闭合的多边形，给出的坐标点的最后一点必须与第一点相同.以下代码实现填充一个三角形和画一个八边形。
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> px1[]=&#123;<span class="number">50</span>,<span class="number">90</span>,<span class="number">10</span>,<span class="number">50</span>&#125;;<span class="comment">//首末点相重,才能画多边形  </span></span><br><span class="line"><span class="keyword">int</span> py1[]=&#123;<span class="number">10</span>,<span class="number">50</span>,<span class="number">50</span>,<span class="number">10</span>&#125;;  </span><br><span class="line"><span class="keyword">int</span> px2[]=&#123;<span class="number">140</span>,<span class="number">180</span>,<span class="number">170</span>,<span class="number">180</span>,<span class="number">140</span>,<span class="number">100</span>,<span class="number">110</span>,<span class="number">140</span>&#125;;  </span><br><span class="line"><span class="keyword">int</span> py2[]=&#123;<span class="number">5</span>,<span class="number">25</span>,<span class="number">35</span>,<span class="number">45</span>,<span class="number">65</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">5</span>&#125;;  </span><br><span class="line">g.setColor(Color.blue);  </span><br><span class="line">g.fillPolygon(px1,py1,<span class="number">4</span>);  </span><br><span class="line">g.setColor(Color.red);  </span><br><span class="line">g.drawPolygon(px2,py2,<span class="number">9</span>);</span><br></pre></td></tr></table></figure>
+
+也可以用多边形对象画多边形。用多边形类Polygon创建一个多边形对象，然后用这个对象绘制多边形。Polygon类的主要方法：
+
+  * Polygon()：创建多边形对象，暂时没有坐标点。 
+  * Polygon(int xPoints[],int yPoints[],int nPoints)：用指定的坐标点创建多边形对象。 
+  * addPoint()：将一个坐标点加入到Polygon对象中。 
+  * drawPolygon(Polygon p)：绘制多边形。 
+  * fillPolygon(Polygon p)：和指定的颜色填充多边形。 
+
+例如,以下代码，画一个三角形和填充一个黄色的三角形。注意，用多边形对象画封闭多边形不要求首末点重合。  
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x[]=&#123;<span class="number">140</span>,<span class="number">180</span>,<span class="number">170</span>,<span class="number">180</span>,<span class="number">140</span>,<span class="number">100</span>,<span class="number">110</span>,<span class="number">100</span>&#125;;  </span><br><span class="line"><span class="keyword">int</span> y[]=&#123;<span class="number">5</span>,<span class="number">25</span>,<span class="number">35</span>,<span class="number">45</span>,<span class="number">65</span>,<span class="number">45</span>,<span class="number">35</span>,<span class="number">25</span>&#125;;  </span><br><span class="line">Polygon ponlygon1=<span class="keyword">new</span> Polygon();  </span><br><span class="line">polygon1.addPoint(<span class="number">50</span>,<span class="number">10</span>);  </span><br><span class="line">polygon1.addPoint(<span class="number">90</span>,<span class="number">50</span>);  </span><br><span class="line">polygon1.addPoint(<span class="number">10</span>,<span class="number">50</span>);  </span><br><span class="line">g.drawPolygon(polygon1);  </span><br><span class="line">g.setColor(Color.yellow);  </span><br><span class="line">Polygon polygon2 = <span class="keyword">new</span> Polygon(x,y,<span class="number">8</span>);  </span><br><span class="line">g.fillPolygon(polygon2);</span><br></pre></td></tr></table></figure>
+
+** 7\. 擦除矩形块 **   
+当需要在一个着色图形的中间有一个空缺的矩形的情况，可用背景色填充一矩形块实现，相当于在该矩形块上使用了 “橡皮擦”.实现的方法是：  
+clearRect(int x,int y, int width,int height)：擦除一个由参数指定的矩形块的着色。  
+例如，以下代码实现在一个圆中擦除一个矩形块的着色：  
+<pre>
+g.setColor(Color.blue);  
+g.fillOval(50,50,100,100);g.clearRect(70,70,40,55);  
+</pre>
+** 8. 限定作图显示区域 **   
+用一个矩形表示图形的显示区域，要求图形在指定的范围内有效，不重新计算新的坐标值，自动实现超出部分不显示。方法是clipRect(int x,int
+y,int width,int height)，限制图形在指定区域内的显示，超出部分不显示。多个限制区有覆盖时，得到限制区域的  交集区域  。例如，代码： 
+<pre>
+g.clipRect(0,0,100,50);
+g.clipRect(50,25,100,50); 
+</pre>
+相当于  
+<pre>
+g.clipRect(50,25,50,25);  
+</pre>
+
+<p><strong> 9. 复制图形 </strong><br>利用Graphics类的方法copyArea()可以实现图形的复制,其使用格式是：  </p>
+<pre>
+copyArea(int x,int y,int width,int height, int dx, int dy)，
+</pre>
+dx和dy分别表示将图形粘贴到原位置偏移的像素点数，正值为往右或往下偏移是，负值为往左或往上偏移量。位移的参考点是要复制矩形的左上角坐标。  
+
+例如，以下代码示意图形的复制,将一个矩形的一部分、另一个矩形的全部分别自制。  
+<pre>
+g.drawRect(10,10,60,90);  
+g.fillRect(90,10,60,90);  
+g.copyArea(40,50,60,70,-20,80);  
+g.copyArea(110,50,60,60,10,80);  
+</pre>
+
+<p>【例12-3】小应用程序重写update()方法,只清除圆块，不清除文字，窗口显示一个不断移动的红色方块</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.applet.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example7_3</span> <span class="keyword">extends</span> <span class="title">Applet</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">        setBackground(Color.yellow);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">paint</span><span class="params">(Graphics g)</span></span>&#123;</span><br><span class="line">        i = i+<span class="number">8</span>; <span class="keyword">if</span>(i&gt;<span class="number">160</span>)i=<span class="number">1</span>;</span><br><span class="line">        g.setColor(Color.red);g.fillRect(i,<span class="number">10</span>,<span class="number">20</span>,<span class="number">20</span>);</span><br><span class="line">        g.drawString(<span class="string">"我正学习update()方法"</span>,<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Thread.sleep(<span class="number">100</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(InterruptedException e)&#123;&#125;</span><br><span class="line">        repaint();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Graphics g)</span></span>&#123;</span><br><span class="line">        g.clearRect(i,<span class="number">10</span>,<span class="number">200</span>,<span class="number">100</span>);<span class="comment">//不清除"我正在学习update()方法"</span></span><br><span class="line">        paint(g);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般的绘图程序要继承JFrame，定义一个JFrame窗口子类，还要继承JPanel，定义一个JPanel子类。在JPanel子类<br>中重定义方法paintComponent()，在这个方法中调用绘图方法,绘制各种图形。  </p>
+<p>【例12-4】使用XOR绘图模式的应用程序</p>
+<pre><code>&lt;pre name=&quot;code&quot; class=&quot;java&quot;&gt;import javax.swing.*;
+import java.awt.*;
+public class Example7_4 extends JFrame{
+    public static void main(String args[]){
+        GraphicsDemo myGraphicsFrame = new GraphicsDemo();
+    }
+}
+class ShapesPanel extends JPanel{
+    ShapesPanel(){
+        setBackground(Color.white);
+    }
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        setBackground(Color.yellow); //背景色为黄色
+        g.setXORMode(Color.red); //设置XOR绘图模式,颜色为红色
+        g.setColor(Color.green);
+        g.fillRect(20, 20, 80, 40); //实际颜色是green + yellow的混合色=灰色
+        g.setColor(Color.yellow);
+        g.fillRect(60, 20, 80, 40); //后一半是yellow+yellow=read,前一半是yellow+灰色
+        g.setColor(Color.green);
+        g.fillRect(20, 70, 80, 40); //实际颜色是green+yellow的混合色=灰色.
+        g.fillRect(60, 70, 80, 40);
+        //前一半是(green+yellow)+gray =背景色,后一半是green+yellow = gray
+        g.setColor(Color.green);
+        g.drawLine(80, 100, 180, 200); //该直线是green+yellow = gray
+        g.drawLine(100, 100, 200, 200); //同上
+        /*再绘制部分重叠的直线.原直线中间段是灰色+灰色=背景色,延长部分是green+yellow=gray.*/
+        g.drawLine(140, 140, 220, 220);
+        g.setColor(Color.yellow); //分析下列直线颜色变化,与早先的力有重叠
+        g.drawLine(20, 30, 160, 30);
+        g.drawLine(20, 75, 160, 75);
+    }
+}
+
+class GraphicsDemo extends JFrame{
+    public GraphicsDemo(){
+        this.getContentPane().add(new ShapesPanel());
+        setTitle(&quot;基本绘图方法演示&quot;);
+        setSize(300, 300);
+        setVisible(true);
+    }
+}
+</code></pre><p>转载自： <a href="http://www.weixueyuan.net/view/6073.html" target="_blank" rel="noopener"> http://www.weixueyuan.net/view/6073.html
+</a>  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Scott Woo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.faxiang.site/2015/04/30/Java Graphics类的绘图方法/" title="Java Graphics类的绘图方法">http://www.faxiang.site/2015/04/30/Java Graphics类的绘图方法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/30/NetBeans快捷键大全/" rel="next" title="NetBeans快捷键大全">
+                <i class="fa fa-chevron-left"></i> NetBeans快捷键大全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/30/Java Graphics2D类的绘图方法/" rel="prev" title="Java Graphics2D类的绘图方法">
+                Java Graphics2D类的绘图方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Scott Woo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">183.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>

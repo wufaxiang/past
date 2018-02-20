@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto:300,300italic,400,400italic,700,700italic|Yellowtail:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C,IO流," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Scott Woo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1.printf函数  printf()函数是格式化输出函数, 一般用于向标准输出设备按规定格式输出信息。在编写程序时经常会用到此函数。   printf()函数的调用格式为:   printf(”&amp;lt;格式化字符串&amp;gt;”, &amp;lt;参量表&amp;gt;);   其中格式化字符串包括两部分内容:一部分是正常字符, 这些字符将按原样输出;另一部分是格式化规定字符, 以”%”开始, 后跟一个或几个规">
+<meta name="keywords" content="C,IO流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C的格式化输入输出">
+<meta property="og:url" content="http://www.faxiang.site/2015/01/22/C的格式化输入输出/index.html">
+<meta property="og:site_name" content="Scott Woo">
+<meta property="og:description" content="1.printf函数  printf()函数是格式化输出函数, 一般用于向标准输出设备按规定格式输出信息。在编写程序时经常会用到此函数。   printf()函数的调用格式为:   printf(”&amp;lt;格式化字符串&amp;gt;”, &amp;lt;参量表&amp;gt;);   其中格式化字符串包括两部分内容:一部分是正常字符, 这些字符将按原样输出;另一部分是格式化规定字符, 以”%”开始, 后跟一个或几个规">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-12T03:05:51.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C的格式化输入输出">
+<meta name="twitter:description" content="1.printf函数  printf()函数是格式化输出函数, 一般用于向标准输出设备按规定格式输出信息。在编写程序时经常会用到此函数。   printf()函数的调用格式为:   printf(”&amp;lt;格式化字符串&amp;gt;”, &amp;lt;参量表&amp;gt;);   其中格式化字符串包括两部分内容:一部分是正常字符, 这些字符将按原样输出;另一部分是格式化规定字符, 以”%”开始, 后跟一个或几个规">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.faxiang.site/2015/01/22/C的格式化输入输出/"/>
+
+
+
+
+
+  <title>C的格式化输入输出 | Scott Woo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Scott Woo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2015/01/22/C的格式化输入输出/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Scott Woo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Scott Woo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">C的格式化输入输出</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-22T12:16:12+08:00">
+                2015-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,321
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong> 1.printf函数 </strong></p>
+<pre><code>printf()函数是格式化输出函数, 一般用于向标准输出设备按规定格式输出信息。在编写程序时经常会用到此函数。  
+printf()函数的调用格式为:  
+printf(”&lt;格式化字符串&gt;”, &lt;参量表&gt;);  
+</code></pre><p>其中格式化字符串包括两部分内容:<br>一部分是正常字符, 这些字符将按原样输出;<br>另一部分是格式化规定字符, 以”%”开始, 后跟一个或几个规定字符,用来确定输出内容格式。<br>参量表是需要输出的一系列参数, 其个数必须与格式化字符串所说明的输出<br>参数个数一样多, 各参数之间用”,”分开, 且顺序一一对应, 否则将会出现意想不到的错误。<br><a id="more"></a><br>1. 格式化规定符  </p>
+<pre><code>Turbo C2.0提供的格式化规定符如下:  
+━━━━━━━━━━━━━━━━━━━━━━━━━━  
+符号 作用  
+——————————————————————————  
+%d 十进制有符号整数  
+%u 十进制无符号整数  
+%f 浮点数  
+%s 字符串  
+%c 单个字符  
+%p 指针的值  
+%e 指数形式的浮点数  
+%x, %X 无符号以十六进制表示的整数  
+%0 无符号以八进制表示的整数  
+%g 自动选择合适的表示法  
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre><p>说明：</p>
+<p><strong> (1)可以在”%”和字母之间插进数字表示最大场宽。 </strong><br>例如: </p>
+<pre><code>%3d 表示输出3位整型数, 不够3位右对齐。  
+%9.2f 表示输出场宽为9的浮点数, 其中小数位为2, 整数位为6,小数点占一位, 不够9位右对齐。  
+%8s 表示输出8个字符的字符串, 不够8个字符右对齐。  
+如果字符串的长度、或整型数位数超过说明的场宽, 将按其实际长度输出。  
+但对浮点数, 若整数部分位数超过了说明的整数位宽度, 将按实际整数位输出;  
+若小数部分位数超过了说明的小数位宽度, 则按说明的宽度以四舍五入输出。  
+另外, 若想在输出值前加一些0, 就应在场宽项前加个0。  
+例如: %04d 表示在输出一个小于4位的数值时, 将在前面补0使其总宽度为4位。  
+如果用浮点数表示字符或整型量的输出格式, 小数点后的数字代表最大宽度,小数点前的数字代表最小宽度。  
+例如: %6.9s 表示显示一个长度不小于6且不大于9的字符串。若大于9, 则第9个字符以后的内容将被删除。  
+** (2)可以在”%”和字母之间加小写字母l, 表示输出的是长型数。 **   
+例如: %ld 表示输出long整数  
+%lf 表示输出double浮点数  
+** (3)可以控制输出左对齐或右对齐, 即在”%”和字母之间加入一个”-” 号可说明输出为左对齐, 否则为右对齐。 **   
+例如: %-7d 表示输出7位整数左对齐  
+%-10s 表示输出10个字符左对齐
+</code></pre><p>2. 一些特殊规定字符  </p>
+<pre><code>━━━━━━━━━━━━━━━━━━━━━━━━━━  
+字符  作用  
+——————————————————————————  
+\n 换行  
+\f 清屏并换页  
+\r 回车  
+\t Tab符  
+\xhh 表示一个ASCII码用16进表示,  
+其中hh是1到2个16进制数  
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre><p>例1：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> c, s[<span class="number">20</span>], *p;</span><br><span class="line">	<span class="keyword">int</span> a=<span class="number">1234</span>, *i,b=<span class="number">12</span>;</span><br><span class="line">	<span class="keyword">float</span> f=<span class="number">3.141592653589</span>;</span><br><span class="line">	<span class="keyword">double</span> x=<span class="number">0.12345678987654321</span>;</span><br><span class="line">	p=<span class="string">"How do you do"</span>;</span><br><span class="line">	<span class="built_in">strcpy</span>(s,<span class="string">"Hello, Comrade"</span>);</span><br><span class="line">	i=&amp;b;</span><br><span class="line">	c='\x41';</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"a=%d\n"</span>, a); <span class="comment">/*结果输出十进制整数a=1234*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"a=%6d\n"</span>, a); <span class="comment">/*结果输出6位十进制数a= 1234*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"a=%06d\n"</span>, a); <span class="comment">/*结果输出6位十进制数a=001234*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"a=%2d\n"</span>, a); <span class="comment">/*a超过2位, 按实际值输出a=1234*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*i=%4d\n"</span>, *i); <span class="comment">/*输出4位十进制整数*i= 12*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*i=%-4d\n"</span>, *i); <span class="comment">/*输出左对齐4位十进制整数*i=12*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"i=%p\n"</span>, i); <span class="comment">/*输出地址i=06E4*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"f=%f\n"</span>, f); <span class="comment">/*输出浮点数f=3.141593*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"f=6.4f\n"</span>, f); <span class="comment">/*输出6位其中小数点后4位的浮点数f=3.1416*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"x=%lf\n"</span>, x); <span class="comment">/*输出长浮点数x=0.123457*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"x=%18.16lf\n"</span>, x);<span class="comment">/*输出18位其中小数点后16位的长浮点数x=0.1234567898765432*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"c=%c\n"</span>, c); <span class="comment">/*输出字符c=A*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"c=%x\n"</span>, c); <span class="comment">/*输出字符的ASCII码值c=41*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"s[]=%s\n"</span>, s); <span class="comment">/*输出数组字符串s[]=Hello, Comrade*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"s[]=%6.9s\n"</span>, s);<span class="comment">/*输出最多9个字符的字符串s[]=Hello,Co*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"s=%p\n"</span>, s); <span class="comment">/*输出数组字符串首字符地址s=FFBE*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"*p=%s\n"</span>, p); <span class="comment">/* 输出指针字符串p=How do you do*/</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"p=%p\n"</span>, p); <span class="comment">/*输出指针的值p=0194*/</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong> 2.scanf函数  </strong></p>
+<p>scanf()函数是格式化输入函数, 它从标准输入设备(键盘) 读取输入的信息。<br>其调用格式为:<br>scanf(”&lt;格式化字符串&gt;”, &lt;地址表&gt;);<br>格式化字符串包括以下三类不同的字符;<br>1. 格式化说明符: 格式化说明符与printf()函数中的格式说明符基本相同。<br>2. 空白字符: 空白字符会使scanf()函数在读操作中略去输入中的一个或多个空白字符。<br>3. 非空白字符: 一个非空白字符会使scanf()函数在读入时剔除掉与这个非空白字符相同的字符。<br>地址表是需要读入的所有变量的地址, 而不是变量本身。这与printf()函数完全不同, 要特别注意。各个变量的地址之间同”,”分开。</p>
+<p>例2：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"i, j=?\n"</span>);</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d, %d"</span>, &amp;i, &amp;j);</span><br></pre></td></tr></table></figure>
+<p>上例中的scanf()函数先读一个整型数, 然后把接着输入的逗号剔除掉, 最后读入另一个整型数。如果”,”这一特定字符没有找到,scanf()函数就终止。若参数之间的分隔符为空格, 则参数之间必须输入一个或多个空格。</p>
+<p>说明：</p>
+<p>(1). 对于字符串数组或字符串指针变量, 由于数组名和指针变量名本身就是地址, 因此使用scanf()函数时, 不需要在它们前面加上”&amp;”操作符。<br>例3：  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p, str[<span class="number">20</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s"</span>, p); <span class="comment">/*从健盘输入字符串*/</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%s"</span>, str);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>, p); <span class="comment">/*向屏幕输出字符串*/</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%s\n"</span>, str);</span><br></pre></td></tr></table></figure>
+<p>(2). 可以在格式化字符串中的”%”各格式化规定符之间加入一个整数, 表示任何读操作中的最大位数。  </p>
+<p>如例3中若规定只能输入10字符给字符串指针p, 则第一条scanf() 函数语句变为  </p>
+<blockquote>
+<p>scanf(”%10s”, p);</p>
+</blockquote>
+<p>程序运行时一旦输入字符个数大于10, p就不再继续读入, 而后面的一个读入函数即scanf(”%s”, str)就会从第11个字符开始读入。实际使用scanf()函数时存在一个问题, 下面举例进行说明: 当使用多个scanf()函数连续给多个字符变量输入时, 例如:  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c1, c2;</span><br><span class="line"><span class="built_in">scanf</span>(”%c”, &amp;c1);</span><br><span class="line"><span class="built_in">scanf</span>(”%c”, &amp;c2);</span><br><span class="line"><span class="built_in">printf</span>(”c1 is %c, c2 is %c”, c2\<span class="number">1</span>, c2);</span><br></pre></td></tr></table></figure>
+<p>运行该程序, 输入一个字符A后回车 (要完成输入必须回车), 在执行scanf(”%c”, &amp;c1)时, 给变量c1赋值”A”, 但回车符仍然留在缓冲区内, 执行输入语句scanf(”%c”, &amp;c2)时, 变量c2输出的是一空行, 如果输入AB后回车, 那么输出结果为: c1 is A, c2 is B。要解决以上问题, 可以在输入函数前加入清除函数fflush()修改以上程序变成</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c1, c2;</span><br><span class="line"><span class="built_in">scanf</span>(”%c”, &amp;c1);</span><br><span class="line">fflush(<span class="built_in">stdin</span>);</span><br><span class="line"><span class="built_in">scanf</span>(”%c”, &amp;c2);</span><br><span class="line"><span class="built_in">printf</span>(”c1 is %c, c2 is %c”, c1, c2);</span><br></pre></td></tr></table></figure>
+<p><strong> 3.非格式化输入输出函数 </strong></p>
+<p>1. puts()函数<br>puts()函数用来向标准输出设备(屏幕)写字符串并换行, 其调用格式为:<br>puts(s);<br>其中s为字符串变量(字符串数组名或字符串指针)。<br>puts()函数的作用与语printf(”%s\n”, s)相同。<br>例4:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[<span class="number">20</span>], *f; <span class="comment">/*定义字符串数组和指针变量*/</span></span><br><span class="line"><span class="built_in">strcpy</span>(s, “Hello! Turbo C2<span class="number">.0</span>″); <span class="comment">/*字符串数组变量赋值*/</span></span><br><span class="line">f=”Thank you”; <span class="comment">/*字符串指针变量赋值*/</span></span><br><span class="line"><span class="built_in">puts</span>(s);</span><br><span class="line"><span class="built_in">puts</span>(f);</span><br></pre></td></tr></table></figure></p>
+<p>说明:<br>(1). puts()函数只能输出字符串, 不能输出数值或进行格式变换。<br>(2). 可以将字符串直接写入puts()函数中。如:  </p>
+<blockquote>
+<p>puts(”Hello, Turbo C2.0″);</p>
+</blockquote>
+<p>2. gets()函数  </p>
+<p>gets()函数用来从标准输入设备(键盘)读取字符串直到回车结束, 但回车符不属于这个字符串。<br>其调用格式为:<br>gets(s);<br>其中s为字符串变量(字符串数组名或字符串指针)。<br>gets(s)函数与scanf(”%s”, &amp;s)相似, 但不完全相同, 使用scanf(”%s”, &amp;s)<br>函数输入字符串时存在一个问题, 就是如果输入了空格会认为输入字符串结束,空格后的字符将作为下一个输入项处理, 但gets()<br>函数将接收输入的整个字符串直到回车为止。  </p>
+<p>例5:  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> s[<span class="number">20</span>], *f;</span><br><span class="line"><span class="built_in">printf</span>(”What’s your name?\n”);</span><br><span class="line">gets(s); <span class="comment">/*等待输入字符串直到回车结束*/</span></span><br><span class="line"><span class="built_in">puts</span>(s); <span class="comment">/*将输入的字符串输出*/</span></span><br><span class="line"><span class="built_in">puts</span>(”How old are you?”);</span><br><span class="line">gets(f);</span><br><span class="line"><span class="built_in">puts</span>(f);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Scott Woo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.faxiang.site/2015/01/22/C的格式化输入输出/" title="C的格式化输入输出">http://www.faxiang.site/2015/01/22/C的格式化输入输出/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/IO流/" rel="tag"># IO流</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/20/排序--冒泡排序、插入排序、希尔排序/" rel="next" title="排序--冒泡排序、插入排序、希尔排序">
+                <i class="fa fa-chevron-left"></i> 排序--冒泡排序、插入排序、希尔排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/22/中国大学MOOC-翁恺-C语言程序习题第十周/" rel="prev" title="中国大学MOOC-翁恺-C语言程序习题第十周">
+                中国大学MOOC-翁恺-C语言程序习题第十周 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Scott Woo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">183.6k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">本站访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">本站总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+</body>
+</html>
