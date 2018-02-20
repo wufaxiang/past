@@ -19,7 +19,7 @@
 
   
   
-  <link rel="stylesheet" media="all" href="/lib/Han/dist/han.min.css?v=3.3">
+  <link rel="stylesheet" media="all" href="/blog/lib/Han/dist/han.min.css?v=3.3">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -90,21 +90,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -116,7 +116,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Scott Woo" type="application/atom+xml" />
+  <link rel="alternate" href="/blog/atom.xml" title="Scott Woo" type="application/atom+xml" />
 
 
 
@@ -136,7 +136,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/',
+    root: '/blog/',
     scheme: 'Muse',
     version: '5.1.4',
     sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -194,7 +194,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/blog/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Scott Woo</span>
         <span class="logo-line-after"><i></i></span>
@@ -222,7 +222,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/blog/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -232,7 +232,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/blog/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -242,7 +242,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/blog/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -317,12 +317,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/25/数字求特征值/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/25/数字求特征值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -336,7 +336,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/25/数字求特征值/" itemprop="url">数字求特征值</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/25/数字求特征值/" itemprop="url">数字求特征值</a></h2>
         
 
         <div class="post-meta">
@@ -371,7 +371,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                  <a href="/blog/categories/PAT/" itemprop="url" rel="index">
                     <span itemprop="name">PAT</span>
                   </a>
                 </span>
@@ -443,7 +443,7 @@
           <p>题目内容：<br>对数字求特征值是常用的编码算法，奇偶特征是一种简单的特征值。对于一个整数，从个位开始对每一位数字编号，个位是1号，十位是2号，以此类推。这个整数在第n位上的<br>数字记作x，如果x和n的奇偶性相同，则记下一个1，否则记下一个0。按照整数的顺序把对应位的表示奇偶性的0和1都记录下来，就形成了一个二进制数字。比如，对于3<br>42315，这个二进制数字就是001101。<br>这里的计算可以用下面的表格来表示：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/12/25/数字求特征值/#more" rel="contents">
+            <a class="btn" href="/blog/2014/12/25/数字求特征值/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -494,12 +494,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/17/Java中 堆 栈，常量池等概念解析（转载）/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/17/Java中 堆 栈，常量池等概念解析（转载）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -513,7 +513,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/17/Java中 堆 栈，常量池等概念解析（转载）/" itemprop="url">Java中 堆 栈，常量池等概念解析（转载）</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/17/Java中 堆 栈，常量池等概念解析（转载）/" itemprop="url">Java中 堆 栈，常量池等概念解析（转载）</a></h2>
         
 
         <div class="post-meta">
@@ -548,7 +548,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
                 </span>
@@ -620,7 +620,7 @@
           <p>1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制.<br>2. 栈：存放基本类型的变量数据和对象的引用，但对象本身不存放在栈中，而是存放在堆（new 出来的对象）或者常量池中（字符串常量对象存放在常量池中。）<br>3. 堆：存放所有new出来的对象。<br>4. 静态域：存放静态成员（static定义的）<br>5. 常量池：存放字符串常量和基本类型常量（public static final）。<br>6. 非RAM存储：硬盘等永久存储空间<br>这里我们主要关心栈，堆和常量池，对于栈和常量池中的对象可以共享，对于堆中的对象不可以共享。栈中的数据大小和生命周期是可以确定的，当没有引用指向数据时，这个数<br>据就会消失。堆中的对象的由垃圾回收器负责回收，因此大小和生命周期不需要确定，具有很大的灵活性。<br>对于字符串：其对象的引用都是存储在栈中的，如果是编译期已经创建好(直接用双引号定义的)的就存储在常量池中，如果是运行期（new出来的）才能确定的就存储在堆中<br>。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。<br>如以下代码：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/12/17/Java中 堆 栈，常量池等概念解析（转载）/#more" rel="contents">
+            <a class="btn" href="/blog/2014/12/17/Java中 堆 栈，常量池等概念解析（转载）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -671,12 +671,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/17/最大子列和问题/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/17/最大子列和问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -690,7 +690,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/17/最大子列和问题/" itemprop="url">最大子列和问题</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/17/最大子列和问题/" itemprop="url">最大子列和问题</a></h2>
         
 
         <div class="post-meta">
@@ -725,7 +725,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                  <a href="/blog/categories/数据结构/" itemprop="url" rel="index">
                     <span itemprop="name">数据结构</span>
                   </a>
                 </span>
@@ -855,12 +855,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/17/java练习31-40/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/17/java练习31-40/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -874,7 +874,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/17/java练习31-40/" itemprop="url">java练习31-40</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/17/java练习31-40/" itemprop="url">java练习31-40</a></h2>
         
 
         <div class="post-meta">
@@ -909,7 +909,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
                 </span>
@@ -982,7 +982,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">lianxi31</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner s = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">20</span>];</span><br><span class="line">		System.out.println(<span class="string">"请输入多个正整数（输入-1表示结束）："</span>);</span><br><span class="line">		<span class="keyword">int</span> i=<span class="number">0</span>,j;</span><br><span class="line">		<span class="keyword">do</span>&#123;</span><br><span class="line">			a[i]=s.nextInt();</span><br><span class="line">			i++;</span><br><span class="line">		&#125;<span class="keyword">while</span> (a[i-<span class="number">1</span>]!=-<span class="number">1</span>);</span><br><span class="line">		System.out.println(<span class="string">"你输入的数组为："</span>);</span><br><span class="line">		<span class="keyword">for</span>( j=<span class="number">0</span>; j&lt;i-<span class="number">1</span>; j++) &#123;</span><br><span class="line">			System.out.print(a[j]+<span class="string">"   "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"\n数组逆序输出为："</span>);</span><br><span class="line">		<span class="keyword">for</span>( j=i-<span class="number">2</span>; j&gt;=<span class="number">0</span>; j=j-<span class="number">1</span>) &#123;</span><br><span class="line">			System.out.print(a[j]+<span class="string">"   "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">    &lt;span style="white-space:pre"&gt;	&lt;/span&gt;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/12/17/java练习31-40/#more" rel="contents">
+            <a class="btn" href="/blog/2014/12/17/java练习31-40/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1033,12 +1033,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/10/java练习21-30/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/10/java练习21-30/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1052,7 +1052,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/10/java练习21-30/" itemprop="url">java练习21-30</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/10/java练习21-30/" itemprop="url">java练习21-30</a></h2>
         
 
         <div class="post-meta">
@@ -1087,7 +1087,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
                 </span>
@@ -1160,7 +1160,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">lianxi21</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">long</span> fac = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">20</span>; i++) &#123;</span><br><span class="line">			fac = fac * i;</span><br><span class="line">			sum += fac;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(sum);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/12/10/java练习21-30/#more" rel="contents">
+            <a class="btn" href="/blog/2014/12/10/java练习21-30/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1211,12 +1211,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/10/java练习11-20/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/10/java练习11-20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1230,7 +1230,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/10/java练习11-20/" itemprop="url">java练习11-20</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/10/java练习11-20/" itemprop="url">java练习11-20</a></h2>
         
 
         <div class="post-meta">
@@ -1265,7 +1265,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
                 </span>
@@ -1354,7 +1354,7 @@
 </code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/12/10/java练习11-20/#more" rel="contents">
+            <a class="btn" href="/blog/2014/12/10/java练习11-20/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1405,12 +1405,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/10/java练习1-10/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/10/java练习1-10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1424,7 +1424,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/10/java练习1-10/" itemprop="url">java练习1-10</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/10/java练习1-10/" itemprop="url">java练习1-10</a></h2>
         
 
         <div class="post-meta">
@@ -1459,7 +1459,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
                 </span>
@@ -1533,7 +1533,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">lianxi01</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"第1个月的兔子对数:    1"</span>);</span><br><span class="line">		System.out.println(<span class="string">"第2个月的兔子对数:    1"</span>);</span><br><span class="line">		<span class="keyword">int</span> f1 = <span class="number">1</span>, f2 = <span class="number">1</span>, f, M = <span class="number">24</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= M; i++) &#123;</span><br><span class="line">			f = f2;</span><br><span class="line">			f2 = f1 + f2;</span><br><span class="line">			f1 = f;</span><br><span class="line">			System.out.println(<span class="string">"第"</span> + i + <span class="string">"个月的兔子对数: "</span> + f2);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/12/10/java练习1-10/#more" rel="contents">
+            <a class="btn" href="/blog/2014/12/10/java练习1-10/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1584,12 +1584,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/2014/12/10/java作业Date类/">
+    <link itemprop="mainEntityOfPage" href="http://www.faxiang.site/blog/2014/12/10/java作业Date类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Scott Woo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1603,7 +1603,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/12/10/java作业Date类/" itemprop="url">java作业Date类</a></h2>
+                <a class="post-title-link" href="/blog/2014/12/10/java作业Date类/" itemprop="url">java作业Date类</a></h2>
         
 
         <div class="post-meta">
@@ -1638,7 +1638,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
+                  <a href="/blog/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
                 </span>
@@ -1749,7 +1749,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span>
+    <a class="extend prev" rel="prev" href="/blog/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/15/">15</a><span class="page-number current">16</span>
   </nav>
 
 
@@ -1872,63 +1872,63 @@
 
   
   
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+    <script type="text/javascript" src="/blog/lib/three/three.min.js"></script>
   
 
   
   
-    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/blog/lib/three/canvas_lines.min.js"></script>
   
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
 
 
 
   
-  
-
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1978,7 +1978,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/" + search_path;
+    var path = "/blog/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
@@ -2339,7 +2339,7 @@
   
 
   
-  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/blog/js/src/exturl.js?v=5.1.4"></script>
 
 
 </body>
