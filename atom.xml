@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Scott Woo</title>
+  <title>Flynn Ng</title>
   
   
   <link href="/blog/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://www.faxiang.site/</id>
   
   <author>
-    <name>Scott Woo</name>
+    <name>Flynn Ng</name>
     
   </author>
   
@@ -358,9 +358,9 @@ sudo apt-get install ethereum
       <category term="solidity" scheme="https://www.faxiang.site/categories/solidity/"/>
     
     
-      <category term="solidity" scheme="https://www.faxiang.site/tags/solidity/"/>
-    
       <category term="智能合约" scheme="https://www.faxiang.site/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
+    
+      <category term="solidity" scheme="https://www.faxiang.site/tags/solidity/"/>
     
   </entry>
   
