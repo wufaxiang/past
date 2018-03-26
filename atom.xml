@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.faxiang.site/"/>
-  <updated>2018-02-12T03:05:51.510Z</updated>
+  <updated>2018-03-26T13:28:00.623Z</updated>
   <id>https://www.faxiang.site/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Framing Key ML Terminology</title>
+    <link href="https://www.faxiang.site/2018/03/26/Framing%20%20Key%20ML%20Terminology/"/>
+    <id>https://www.faxiang.site/2018/03/26/Framing  Key ML Terminology/</id>
+    <published>2018-03-26T11:53:12.000Z</published>
+    <updated>2018-03-26T13:28:00.623Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;The definition of (supervised) Machine Learning:&lt;br&gt;ML system learn how to combine input to produce useful predictions on
+        
+      
+    
+    </summary>
+    
+      <category term="ML" scheme="https://www.faxiang.site/categories/ML/"/>
+    
+    
+      <category term="Machine Learning" scheme="https://www.faxiang.site/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Java并发编程（2）：Java并发编程基础</title>
@@ -455,33 +482,6 @@ sudo apt-get install ethereum
 &lt;p&gt;&amp;emsp;&amp;emsp;其中K为观察的天数，Ei为第i天的用电量。&lt;/p&gt;
 &lt;p&gt;输出格式：&lt;/p&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;在一行中输出“可能空置”的比率和“空置”比率的百分比值，其间以一个空格分隔，保留小数点后1位。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="PAT(B)" scheme="https://www.faxiang.site/categories/PAT-B/"/>
-    
-    
-      <category term="PAT" scheme="https://www.faxiang.site/tags/PAT/"/>
-    
-      <category term="数据结构" scheme="https://www.faxiang.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1052. 卖个萌</title>
-    <link href="https://www.faxiang.site/2016/07/15/1052.%20%E5%8D%96%E4%B8%AA%E8%90%8C/"/>
-    <id>https://www.faxiang.site/2016/07/15/1052. 卖个萌/</id>
-    <published>2016-07-15T15:22:12.000Z</published>
-    <updated>2018-02-12T03:05:50.379Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;萌萌哒表情符号通常由“手”、“眼”、“口”三个主要部分组成。简单起见，我们假设一个表情符号是按下列格式输出的：&lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;p&gt;[左手] ( [左眼][口][右眼] ) [右手]&lt;/p&gt;&lt;/center&gt;&lt;br&gt;&amp;emsp;&amp;emsp;现给出可选用的符号集合，请你按用户的要求输出表情。&lt;/p&gt;
-&lt;p&gt;输入格式：&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;输入首先在前三行顺序对应给出手、眼、口的可选符号集。每个符号括在一对方括号[]内。题目保证每个集合都至少有一个符号，并不超过10个符号；每个符号包含1到4个非空字符。之后一行给出一个正整数K，为用户请求的个数。随后K行，每行给出一个用户的符号选择，顺序为左手、左眼、口、右眼、右手——这里只给出符号在相应集合中的序号（从1开始），数字间以空格分隔。&lt;/p&gt;
-&lt;p&gt;输出格式：&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;对每个用户请求，在一行中输出生成的表情。若用户选择的序号不存在，则输出“Are you kidding me? @\/@”。&lt;br&gt;
     
     </summary>
     

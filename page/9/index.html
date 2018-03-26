@@ -317,6 +317,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.faxiang.site/blog/2015/09/07/PTA数据结构与算法题目集（中文） 函数题(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flynn Ng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flynn Ng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2015/09/07/PTA数据结构与算法题目集（中文） 函数题(2)/" itemprop="url">PTA数据结构与算法题目集（中文） 函数题(2)</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-07T13:00:24+08:00">
+                2015-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/PTA/" itemprop="url" rel="index">
+                    <span itemprop="name">PTA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,225
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="4-6-带头结点的链式表操作集"><a href="#4-6-带头结点的链式表操作集" class="headerlink" title="4-6 带头结点的链式表操作集"></a>4-6 带头结点的链式表操作集</h2><p>code:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function">List <span class="title">MakeEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        List L;</span><br><span class="line">        L = (List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct LNode));</span><br><span class="line">        L-&gt;Data = <span class="literal">NULL</span>;</span><br><span class="line">        L-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">return</span> L;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">Position <span class="title">Find</span><span class="params">( List L, ElementType X )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        List p = L;</span><br><span class="line">        <span class="keyword">while</span>(p &amp;&amp; p-&gt;Data!=X) &#123;</span><br><span class="line">            p = p-&gt;Next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p &amp;&amp; X==p-&gt;Data) &#123;</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ERROR;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">( List L, ElementType X, Position P )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        List r = L;</span><br><span class="line">        List pre = L;</span><br><span class="line">        <span class="keyword">while</span>(r &amp;&amp; P!=r) &#123;</span><br><span class="line">            pre = r;</span><br><span class="line">            r = r-&gt;Next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(r==P) &#123;</span><br><span class="line">            List p = (List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct LNode));</span><br><span class="line">            p-&gt;Data = X;</span><br><span class="line">            p-&gt;Next = r;</span><br><span class="line">            pre-&gt;Next = p;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Wrong Position for Insertion\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Delete</span><span class="params">( List L, Position P )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    </span><br><span class="line">        List r = L;</span><br><span class="line">        List pre = L;</span><br><span class="line">        <span class="keyword">while</span>(r &amp;&amp; r!=P)</span><br><span class="line">        &#123;</span><br><span class="line">            pre = r;</span><br><span class="line">            r = r-&gt;Next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(r==P) &#123;</span><br><span class="line">            pre-&gt;Next = P-&gt;Next;</span><br><span class="line">            <span class="built_in">free</span>(P);</span><br><span class="line">            List k = pre-&gt;Next;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Wrong Position for Deletion\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong> <em> P.S:这道题需要写四个函数，分别是链表的置空，查询某个元素，还有元素的插入和删除，都是一些链表的基本操作，题中的链表是有头节点的，而开始的题中的链表是没有使用头节点的，这个与前面的有一些区别，其实拥有头节点的链表更容易操作，在插入时不用考虑是否是第一个结点了，更加好写些，同样要注意Find函数，它需要返回的是这个元素的Position，而它是一个指针变量，而不是代表其位置的整型变量。 </em> </strong></p>
+<h2 id="4-7-在一个数组中实现两个堆栈"><a href="#4-7-在一个数组中实现两个堆栈" class="headerlink" title="4-7 在一个数组中实现两个堆栈"></a>4-7 在一个数组中实现两个堆栈</h2><p><strong> <em> P.S:很头疼，这一题没有通过，报的错误也是十分无奈，超时，所以也不知道怎样去解决这个问题，如何去优化代码，这道题其实是一个数组嘛，两个栈的栈底在两头，设计应该就是这样，但是给我报超时错误，暂时先放下吧，以后通过再补上来。 </em> </strong></p>
+<p><strong> <em> 更新：补上成功的code，今天突然再次提交，居然就通过了，看来我的想法是没有问题的^</em>^ _ </strong></p>
+<p><strong> code: </strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function">Stack <span class="title">CreateStack</span><span class="params">( <span class="keyword">int</span> MaxSize )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Stack S = (Stack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">        S-&gt;MaxSize = MaxSize;</span><br><span class="line">        S-&gt;Data = (ElementType *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ElementType)*MaxSize);</span><br><span class="line">        S-&gt;Top2 = MaxSize;</span><br><span class="line">        S-&gt;Top1 = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> S;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Push</span><span class="params">(Stack S, ElementType X, <span class="keyword">int</span> Tag)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(S-&gt;Top1+<span class="number">1</span> == S-&gt;Top2)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Stack Full\n"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(Tag == <span class="number">1</span>)&#123;</span><br><span class="line">                S-&gt;Top1++;</span><br><span class="line">                S-&gt;Data[S-&gt;Top1] = X;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                S-&gt;Top2--;</span><br><span class="line">                S-&gt;Data[S-&gt;Top2] = X;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S, <span class="keyword">int</span> Tag)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> X;</span><br><span class="line">        <span class="keyword">if</span>(Tag == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S-&gt;Top1 == <span class="number">-1</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Stack 1 Empty\n"</span>);</span><br><span class="line">                <span class="keyword">return</span> ERROR;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                X = S-&gt;Data[S-&gt;Top1];</span><br><span class="line">                S-&gt;Top1--;</span><br><span class="line">                <span class="keyword">return</span> X;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(Tag == <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S-&gt;Top2 == S-&gt;MaxSize)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Stack 2 Empty\n"</span>);</span><br><span class="line">                <span class="keyword">return</span> ERROR;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                X = S-&gt;Data[S-&gt;Top2];</span><br><span class="line">                S-&gt;Top2++;</span><br><span class="line">                <span class="keyword">return</span> X;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">##  <span class="number">4</span><span class="number">-8</span> 求二叉树高度</span><br><span class="line"></span><br><span class="line">** code: **</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GetHeight</span><span class="params">( BinTree BT )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (BT == <span class="literal">NULL</span>)  </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">else</span> &#123;  </span><br><span class="line">            <span class="keyword">int</span> left = GetHeight(BT-&gt;Left);</span><br><span class="line">            <span class="keyword">int</span> right = GetHeight(BT-&gt;Right);</span><br><span class="line">            <span class="keyword">if</span>(left&gt;=right)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span> + left;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span> + right;</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong> <em> P.S:求一颗二叉树的高度，我直接使用了递归实现，所以也十分的清晰易懂。 </em> </strong></p>
+<h2 id="4-9-二叉树遍历"><a href="#4-9-二叉树遍历" class="headerlink" title="4-9 二叉树遍历"></a>4-9 二叉树遍历</h2><p><strong> <em> 这道题吧，也木有通过，其实是不愿写吧，前序，中序，后续遍历都很简单，但是层序便利时，我们知道需要借助队列来实现，而在函数题中又不能用那种头文件，因此我想了想，但后来脑子就不舒服，先放下，后面补上。 </em> </strong></p>
+<p><strong> <em> 更新：今天想了想，其实没有必要用队列的，可以简单点嘛，开始怎么就那么蠢呢，队列也是由数组或链表构成的，而这道题又不需要考虑队列满或者空的情况，自己用一个数组代替不就是了，其实很简单的啦，我才用了一个容量为100的数组来模拟队列，最后就这样成功啦，前中后三种遍历就没有什么好说的咯，递归，简单易懂，用栈的话也不难，但是能简单就简单嘛 </em> </strong></p>
+<p><strong> code: </strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InorderTraversal</span><span class="params">( BinTree BT )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT)&#123;</span><br><span class="line">        InorderTraversal(BT-&gt;Left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %c"</span>, BT-&gt;Data);</span><br><span class="line">        InorderTraversal(BT-&gt;Right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreorderTraversal</span><span class="params">( BinTree BT )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %c"</span>,BT-&gt;Data);</span><br><span class="line">        PreorderTraversal(BT-&gt;Left);</span><br><span class="line">        PreorderTraversal(BT-&gt;Right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostorderTraversal</span><span class="params">( BinTree BT )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        PostorderTraversal(BT-&gt;Left);</span><br><span class="line">        PostorderTraversal(BT-&gt;Right);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %c"</span>, BT-&gt;Data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LevelorderTraversal</span><span class="params">( BinTree BT )</span> </span>&#123;</span><br><span class="line">    BinTree str[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> rear = <span class="number">-1</span>, front = <span class="number">-1</span>;</span><br><span class="line">    BinTree T;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!BT)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    rear = rear+<span class="number">1</span>;</span><br><span class="line">    str[rear] = BT;</span><br><span class="line">    <span class="keyword">while</span>(rear != front)&#123;</span><br><span class="line">        front = front+<span class="number">1</span>;</span><br><span class="line">        T = str[front];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" %c"</span>, T-&gt;Data);</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;Left) &#123;</span><br><span class="line">            rear = rear+<span class="number">1</span>;</span><br><span class="line">            str[rear] = T-&gt;Left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;Right)&#123;</span><br><span class="line">            rear++ ;</span><br><span class="line">            str[rear] = T-&gt;Right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-10-二分查找"><a href="#4-10-二分查找" class="headerlink" title="4-10 二分查找"></a>4-10 二分查找</h2><p><strong> code: </strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Position <span class="title">BinarySearch</span><span class="params">( List Tbl, ElementType K )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left, right, middle;</span><br><span class="line">    left = <span class="number">1</span>, right = Tbl-&gt;Last;</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right)</span><br><span class="line">    &#123;</span><br><span class="line">        middle = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (Tbl-&gt;Data[middle] &gt; K)</span><br><span class="line">        &#123;</span><br><span class="line">            right = middle - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Tbl-&gt;Data[middle] &lt; K)</span><br><span class="line">        &#123;</span><br><span class="line">            left = middle + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(Tbl-&gt;Data[middle] == K)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> middle;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> NotFound;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong> <em> P.S:二分查找算法，也叫折半查找，也就是将数组每次只查找一半，因此可以省去很多的比较次数，也就提高了效率，减少了查找时间，是一个很好，很基础的算法 </em> </strong>   </p>
+<ul>
+<li><h2 id="4-11-先序输出叶结点"><a href="#4-11-先序输出叶结点" class="headerlink" title="4-11 先序输出叶结点"></a>4-11 先序输出叶结点</h2></li>
+</ul>
+<p><strong> code: </strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreorderPrintLeaves</span><span class="params">( BinTree BT )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        PreorderPrintLeaves(BT-&gt;Left);</span><br><span class="line">        <span class="keyword">if</span>(BT-&gt;Data &gt;=<span class="string">'A'</span> &amp;&amp; BT-&gt;Data &lt;=<span class="string">'z'</span> &amp;&amp; BT-&gt;Left == <span class="literal">NULL</span> &amp;&amp; BT-&gt;Right == <span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %c"</span>,BT-&gt;Data);</span><br><span class="line">        &#125;</span><br><span class="line">        PreorderPrintLeaves(BT-&gt;Right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong> <em> P.S:先序输出叶子结点，说白了就是先序遍历呗，不过在先序遍历的基础上进行一下判断，当左右子节点都为空时才输出来。 </em> </strong></p>
+<h2 id="4-12-二叉搜索树的操作集"><a href="#4-12-二叉搜索树的操作集" class="headerlink" title="4-12 二叉搜索树的操作集"></a>4-12 二叉搜索树的操作集</h2><p><strong> <em> P.S:这道题部分正确，可能是没有考虑全面，前三个测试点不能通过，后两个可以，所以等通过之后再放上代码。 </em> </strong></p>
+<p><strong> <em> 更新：调了很多次，这道虽然是教材上的，但是删除操作是真的很复杂，需要很细心头脑很清晰的去写，下面的是code，参考了教材上的源码，最后居然让我发现了一个小错误，教材上查找最大最小元素函数的判断语句中多了个“！”，很容易就发现啦，但是不一定会注意到，慢慢写啦！！ </em> </strong></p>
+<p><strong> code: </strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BinTree <span class="title">Insert</span><span class="params">( BinTree BST, ElementType X )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!BST) &#123;          <span class="comment">/* 若原树为空，生成并返回一个结点的二叉搜索树 */</span></span><br><span class="line">        BST = (BinTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct TNode));</span><br><span class="line">        BST -&gt;Data = X;</span><br><span class="line">        BST -&gt;Left = BST -&gt;Right = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;         <span class="comment">/* 开始寻找要插入元素的位置 */</span></span><br><span class="line">        <span class="keyword">if</span>(X &lt; BST -&gt;Data ) &#123;</span><br><span class="line">            BST -&gt;Left = Insert(BST -&gt;Left, X);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(X &gt; BST -&gt;Data ) &#123;</span><br><span class="line">            BST -&gt;Right = Insert(BST -&gt;Right, X);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/* X已经存在，不用操作 */</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">BinTree <span class="title">Delete</span><span class="params">( BinTree BST, ElementType X )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Position Tmp;</span><br><span class="line">    <span class="keyword">if</span>(!BST) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Not Found\n"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>( X &lt; BST-&gt;Data) &#123;</span><br><span class="line">            BST -&gt;Left = Delete(BST-&gt;Left, X);  <span class="comment">/* 左子树递归删除 */</span></span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(X &gt; BST-&gt;Data ) &#123;</span><br><span class="line">            BST -&gt;Right = Delete(BST-&gt;Right , X);    <span class="comment">/* 右子树递归删除*/</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;     <span class="comment">/* 找到需要删除的结点 */</span></span><br><span class="line">            <span class="keyword">if</span>(BST-&gt;Left &amp;&amp; BST-&gt;Right) &#123;</span><br><span class="line">                <span class="comment">/* 被删除的结点有左右子结点 */</span></span><br><span class="line">                Tmp = FindMin( BST -&gt;Right);   <span class="comment">/* 在右子树中找到最小结点填充删除结点 */</span></span><br><span class="line">                BST -&gt;Data = Tmp -&gt;Data;</span><br><span class="line">                BST -&gt;Right = Delete(BST -&gt;Right, BST -&gt;Data);  <span class="comment">/* 在删除结点的右结点中删除最小元素 */</span></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;     <span class="comment">/* 被删除结点有一个或没有子结点*/</span></span><br><span class="line">                Tmp = BST;</span><br><span class="line">                <span class="keyword">if</span>(!BST -&gt;Left) &#123;   <span class="comment">/*有右孩子或无子结点*/</span></span><br><span class="line">                    BST = BST-&gt;Right;</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!BST-&gt;Right) &#123;  <span class="comment">/* 有左孩子或无子节点*/</span></span><br><span class="line">                    BST = BST-&gt;Left;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">free</span>(Tmp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Position <span class="title">Find</span><span class="params">( BinTree BST, ElementType X )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!BST) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;    <span class="comment">// 查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(X &gt; BST-&gt;Data) &#123;</span><br><span class="line">        <span class="keyword">return</span> Find(BST-&gt;Right, X);     <span class="comment">//在右子树中继续查找</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(X &lt; BST-&gt;Data) &#123;</span><br><span class="line">        <span class="keyword">return</span> Find(BST-&gt;Left, X);      <span class="comment">//在左子树中继续查找</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> BST;                     <span class="comment">//查找成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Position <span class="title">FindMin</span><span class="params">( BinTree BST )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BST) &#123;</span><br><span class="line">        <span class="keyword">while</span>(BST-&gt;Left) &#123;</span><br><span class="line">            BST = BST-&gt;Left;        <span class="comment">//沿着左分支一直查找，直到叶子结点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Position <span class="title">FindMax</span><span class="params">( BinTree BST )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BST) &#123;</span><br><span class="line">        <span class="keyword">while</span>(BST-&gt;Right) &#123;</span><br><span class="line">            BST = BST-&gt;Right;        <span class="comment">//沿着右分支一直查找，直到叶子结点</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong> 函数题就这12道，其中已经完全通过了9道，还有3道暂时没有通过，要不超时，要不部分正确，暂时想也想不出来，想的也比较难过，所以等什么时候有空无聊时再想想，然后通过了再补上吧，如果能给予想法的话请联系我呀，一起交流，一起分享，一起进步^_^ </strong></p>
+<p><strong> 今天将原先没放上的都解决啦，12道函数题完成，虽然都是很基础的数据结构，但是真要全部靠自己写出来很困难困难，多多练习咯，后面就慢慢刷编程题咯，刷题的快感~~~ </strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.faxiang.site/blog/2015/09/07/PTA数据结构与算法题目集（中文） 函数题 (1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1922,185 +2121,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.faxiang.site/blog/2015/04/30/Java Graphics2D类的绘图方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Flynn Ng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Flynn Ng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2015/04/30/Java Graphics2D类的绘图方法/" itemprop="url">Java Graphics2D类的绘图方法</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-30T21:39:12+08:00">
-                2015-04-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,948
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&emsp;&emsp;Java语言在Graphics类提供绘制各种基本的几何图形的基础上,扩展Graphics类提供一个Graphics2D类,它拥用更强大的二维图形处理能力,提供、坐标转换、颜色管理以及文字布局等更精确的控制。</p>
-<h2 id="绘图属性"><a href="#绘图属性" class="headerlink" title="绘图属性"></a>绘图属性</h2><p>&emsp;&emsp;Graphics2D定义了几种方法，用于添加或改变图形的状态属性。可以通过设定和修改状态属性，指定画笔宽度和画笔的连接方式；设定平移、旋转、缩放或修剪变换图形；以及设定填充图形的颜色和图案等。图形状态属性用特定的对象存储。  </p>
-<p><strong> 1. stroke属性 </strong><br>stroke属性控制线条的宽度、笔形样式、线段连接方式或短划线图案。该属性的设置需要先创建BasicStroke对象，再调用setStroke()方法来设置<br>。创建BasicStroke对象的方法有：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/2015/04/30/Java Graphics2D类的绘图方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2137,7 +2157,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">183.6k</span>
+    <span title="Site words total count">184.0k</span>
   
 </div>
 
