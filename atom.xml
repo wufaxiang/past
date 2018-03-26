@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.faxiang.site/"/>
-  <updated>2018-03-26T13:28:00.623Z</updated>
+  <updated>2018-03-26T13:35:55.650Z</updated>
   <id>https://www.faxiang.site/</id>
   
   <author>
@@ -21,18 +21,14 @@
     <link href="https://www.faxiang.site/2018/03/26/Framing%20%20Key%20ML%20Terminology/"/>
     <id>https://www.faxiang.site/2018/03/26/Framing  Key ML Terminology/</id>
     <published>2018-03-26T11:53:12.000Z</published>
-    <updated>2018-03-26T13:28:00.623Z</updated>
+    <updated>2018-03-26T13:35:55.650Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;The definition of (supervised) Machine Learning:&lt;br&gt;ML system learn how to combine input to produce useful predictions on
-        
-      
+      &lt;blockquote&gt;
+&lt;p&gt;The definition of (supervised) Machine Learning:&lt;br&gt;ML system learn how to combine input to produce useful predictions on never-before-seen data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The follow is some fundermental machine learning terminology.&lt;/p&gt;
     
     </summary>
     
