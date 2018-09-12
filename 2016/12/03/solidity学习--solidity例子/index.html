@@ -19,7 +19,7 @@
 
   
   
-  <link rel="stylesheet" media="all" href="/blog/lib/Han/dist/han.min.css?v=3.3">
+  <link rel="stylesheet" media="all" href="/past/lib/Han/dist/han.min.css?v=3.3">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/past/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -90,21 +90,21 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/past/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+<link href="/past/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/past/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/past/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/past/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/past/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -116,7 +116,7 @@
 
 
 
-  <link rel="alternate" href="/blog/atom.xml" title="Flynn Ng" type="application/atom+xml" />
+  <link rel="alternate" href="/past/atom.xml" title="Faxiang Wu" type="application/atom+xml" />
 
 
 
@@ -128,7 +128,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="solidity学习之solidity实例">
 <meta property="og:url" content="https://www.faxiang.site/2016/12/03/solidity学习--solidity例子/index.html">
-<meta property="og:site_name" content="Flynn Ng">
+<meta property="og:site_name" content="Faxiang Wu">
 <meta property="og:description" content="投票下面的合约是非常复杂的，但是展示了大量的solidity的功能。它实现了一个投票合约。当然，电子投票的主要问题是如何为正确的人分为投票权利和如何防止暗箱操作，我们在这里不会解决所有的问题，但至少我们将会展示如何在自动计票和完全透明的同时委派投票。 想法是为每一张选票创建一个合约，为每个投票选项提供一个简短的名字，然后合约的创建者会作为主持人来给予每个投票参与人的地址单独投票的权利。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-02-12T03:05:52.044Z">
@@ -141,7 +141,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/past/',
     scheme: 'Muse',
     version: '5.1.4',
     sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -170,7 +170,7 @@
 
 
 
-  <title>solidity学习之solidity实例 | Flynn Ng</title>
+  <title>solidity学习之solidity实例 | Faxiang Wu</title>
   
 
 
@@ -198,9 +198,9 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/"  class="brand" rel="start">
+      <a href="/past/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Flynn Ng</span>
+        <span class="site-title">Faxiang Wu</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -236,7 +236,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/past/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -246,7 +246,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/past/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -321,16 +321,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.faxiang.site/blog/2016/12/03/solidity学习--solidity例子/">
+    <link itemprop="mainEntityOfPage" href="https://www.faxiang.site/past/2016/12/03/solidity学习--solidity例子/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Flynn Ng">
+      <meta itemprop="name" content="Faxiang Wu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="/past/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Flynn Ng">
+      <meta itemprop="name" content="Faxiang Wu">
     </span>
 
     
@@ -350,7 +350,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-03T10:23:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-03T10:23:12-08:00">
                 2016-12-03
               </time>
             
@@ -373,7 +373,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/solidity/" itemprop="url" rel="index">
+                  <a href="/past/categories/solidity/" itemprop="url" rel="index">
                     <span itemprop="name">solidity</span>
                   </a>
                 </span>
@@ -475,7 +475,7 @@
         <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
-    Flynn Ng
+    Faxiang Wu
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
@@ -494,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/solidity/" rel="tag"># solidity</a>
+            <a href="/past/tags/solidity/" rel="tag"># solidity</a>
           
         </div>
       
@@ -507,7 +507,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2016/12/02/solidity学习--安装solidity/" rel="next" title="solidity学习之安装solidity">
+              <a href="/past/2016/12/02/solidity学习--安装solidity/" rel="next" title="solidity学习之安装solidity">
                 <i class="fa fa-chevron-left"></i> solidity学习之安装solidity
               </a>
             
@@ -517,7 +517,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2016/12/03/solidity学习之深入理解solidity--一个solidity源文件的布局/" rel="prev" title="solidity学习之深入理解solidity--solidity源文件布局">
+              <a href="/past/2016/12/03/solidity学习之深入理解solidity--一个solidity源文件的布局/" rel="prev" title="solidity学习之深入理解solidity--solidity源文件布局">
                 solidity学习之深入理解solidity--solidity源文件布局 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -566,7 +566,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Flynn Ng</span>
+  <span class="author" itemprop="copyrightHolder">Faxiang Wu</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -587,7 +587,7 @@
 
 
 
-  <div class="footer-custom">Hosted by <a href="https://pages.coding.me">Coding Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+  <div class="footer-custom">Hosted by <a href="https://pages.github.com/">Github Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
 
 
         
@@ -667,67 +667,67 @@
 
   
   
-    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/past/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/past/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/past/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/past/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/past/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/past/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/three/three.min.js"></script>
+    <script type="text/javascript" src="/past/lib/three/three.min.js"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/past/lib/three/canvas_lines.min.js"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/past/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/past/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/past/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/past/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/past/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -777,7 +777,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/blog/" + search_path;
+    var path = "/past/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
@@ -1138,7 +1138,7 @@
   
 
   
-  <script type="text/javascript" src="/blog/js/src/exturl.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/past/js/src/exturl.js?v=5.1.4"></script>
 
 
 </body>

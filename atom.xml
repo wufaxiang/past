@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Flynn Ng</title>
+  <title>Faxiang Wu</title>
   
   
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/past/atom.xml" rel="self"/>
   
   <link href="https://www.faxiang.site/"/>
   <updated>2018-03-26T13:35:55.650Z</updated>
   <id>https://www.faxiang.site/</id>
   
   <author>
-    <name>Flynn Ng</name>
+    <name>Faxiang Wu</name>
     
   </author>
   
@@ -20,7 +20,7 @@
     <title>Framing Key ML Terminology</title>
     <link href="https://www.faxiang.site/2018/03/26/Framing%20%20Key%20ML%20Terminology/"/>
     <id>https://www.faxiang.site/2018/03/26/Framing  Key ML Terminology/</id>
-    <published>2018-03-26T11:53:12.000Z</published>
+    <published>2018-03-27T02:53:12.000Z</published>
     <updated>2018-03-26T13:35:55.650Z</updated>
     
     <summary type="html">
@@ -41,8 +41,8 @@
   
   <entry>
     <title>Java并发编程（2）：Java并发编程基础</title>
-    <link href="https://www.faxiang.site/2018/02/12/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%EF%BC%882%EF%BC%89%EF%BC%9AJava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    <id>https://www.faxiang.site/2018/02/12/Java并发编程（2）：Java并发编程基础/</id>
+    <link href="https://www.faxiang.site/2018/02/11/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%EF%BC%882%EF%BC%89%EF%BC%9AJava%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <id>https://www.faxiang.site/2018/02/11/Java并发编程（2）：Java并发编程基础/</id>
     <published>2018-02-12T03:05:51.509Z</published>
     <updated>2018-02-12T03:05:51.510Z</updated>
     
@@ -68,8 +68,8 @@
   
   <entry>
     <title>Java并发编程（1）：并发编程的挑战</title>
-    <link href="https://www.faxiang.site/2018/02/12/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(1)%EF%BC%9A%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E6%8C%91%E6%88%98/"/>
-    <id>https://www.faxiang.site/2018/02/12/Java并发编程(1)：并发编程的挑战/</id>
+    <link href="https://www.faxiang.site/2018/02/11/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B(1)%EF%BC%9A%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E6%8C%91%E6%88%98/"/>
+    <id>https://www.faxiang.site/2018/02/11/Java并发编程(1)：并发编程的挑战/</id>
     <published>2018-02-12T03:05:51.480Z</published>
     <updated>2018-02-12T03:05:51.481Z</updated>
     
@@ -92,8 +92,8 @@
   
   <entry>
     <title>&lt;转载&gt;&quot;区块链-新经济蓝图及导读&quot;读书笔记</title>
-    <link href="https://www.faxiang.site/2018/02/12/%E5%8C%BA%E5%9D%97%E9%93%BE-%E6%96%B0%E7%BB%8F%E6%B5%8E%E8%93%9D%E5%9B%BE%E5%8F%8A%E5%AF%BC%E8%AF%BB%22%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    <id>https://www.faxiang.site/2018/02/12/区块链-新经济蓝图及导读&quot; 读书笔记/</id>
+    <link href="https://www.faxiang.site/2018/02/11/%E5%8C%BA%E5%9D%97%E9%93%BE-%E6%96%B0%E7%BB%8F%E6%B5%8E%E8%93%9D%E5%9B%BE%E5%8F%8A%E5%AF%BC%E8%AF%BB%22%20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>https://www.faxiang.site/2018/02/11/区块链-新经济蓝图及导读&quot; 读书笔记/</id>
     <published>2018-02-12T03:05:50.611Z</published>
     <updated>2018-02-12T03:05:50.611Z</updated>
     
@@ -115,7 +115,7 @@
     <title>以太坊（四）：以太坊的账户类型和交易</title>
     <link href="https://www.faxiang.site/2017/01/04/ethereum_4/"/>
     <id>https://www.faxiang.site/2017/01/04/ethereum_4/</id>
-    <published>2017-01-04T13:57:12.000Z</published>
+    <published>2017-01-05T05:57:12.000Z</published>
     <updated>2018-02-12T03:05:51.282Z</updated>
     
     <summary type="html">
@@ -143,7 +143,7 @@
     <title>以太坊（三）：挖矿</title>
     <link href="https://www.faxiang.site/2017/01/02/ethereum_3/"/>
     <id>https://www.faxiang.site/2017/01/02/ethereum_3/</id>
-    <published>2017-01-02T15:49:12.000Z</published>
+    <published>2017-01-03T07:49:12.000Z</published>
     <updated>2018-02-12T03:05:51.270Z</updated>
     
     <summary type="html">
@@ -167,7 +167,7 @@
     <title>以太坊（二）：账户管理</title>
     <link href="https://www.faxiang.site/2017/01/02/ethereum_2/"/>
     <id>https://www.faxiang.site/2017/01/02/ethereum_2/</id>
-    <published>2017-01-02T13:40:12.000Z</published>
+    <published>2017-01-03T05:40:12.000Z</published>
     <updated>2018-02-12T03:05:51.248Z</updated>
     
     <summary type="html">
@@ -191,7 +191,7 @@
     <title>以太坊（一）：以太坊安装</title>
     <link href="https://www.faxiang.site/2017/01/02/ethereum_1/"/>
     <id>https://www.faxiang.site/2017/01/02/ethereum_1/</id>
-    <published>2017-01-02T12:21:12.000Z</published>
+    <published>2017-01-03T04:21:12.000Z</published>
     <updated>2018-02-12T03:05:51.233Z</updated>
     
     <summary type="html">
@@ -220,7 +220,7 @@ sudo apt-get install ethereum
     <title>solidity学习之深入理解solidity--合约结构</title>
     <link href="https://www.faxiang.site/2016/12/03/solidity%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3solidity--%E5%90%88%E7%BA%A6%E7%BB%93%E6%9E%84/"/>
     <id>https://www.faxiang.site/2016/12/03/solidity学习之深入理解solidity--合约结构/</id>
-    <published>2016-12-03T06:36:12.000Z</published>
+    <published>2016-12-03T22:36:12.000Z</published>
     <updated>2018-02-12T03:05:52.052Z</updated>
     
     <summary type="html">
@@ -241,7 +241,7 @@ sudo apt-get install ethereum
     <title>solidity学习之深入理解solidity--solidity源文件布局</title>
     <link href="https://www.faxiang.site/2016/12/03/solidity%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3solidity--%E4%B8%80%E4%B8%AAsolidity%E6%BA%90%E6%96%87%E4%BB%B6%E7%9A%84%E5%B8%83%E5%B1%80/"/>
     <id>https://www.faxiang.site/2016/12/03/solidity学习之深入理解solidity--一个solidity源文件的布局/</id>
-    <published>2016-12-03T06:05:12.000Z</published>
+    <published>2016-12-03T22:05:12.000Z</published>
     <updated>2018-02-12T03:05:52.073Z</updated>
     
     <summary type="html">
@@ -262,7 +262,7 @@ sudo apt-get install ethereum
     <title>solidity学习之solidity实例</title>
     <link href="https://www.faxiang.site/2016/12/03/solidity%E5%AD%A6%E4%B9%A0--solidity%E4%BE%8B%E5%AD%90/"/>
     <id>https://www.faxiang.site/2016/12/03/solidity学习--solidity例子/</id>
-    <published>2016-12-03T02:23:12.000Z</published>
+    <published>2016-12-03T18:23:12.000Z</published>
     <updated>2018-02-12T03:05:52.044Z</updated>
     
     <summary type="html">
@@ -283,7 +283,7 @@ sudo apt-get install ethereum
     <title>solidity学习之安装solidity</title>
     <link href="https://www.faxiang.site/2016/12/02/solidity%E5%AD%A6%E4%B9%A0--%E5%AE%89%E8%A3%85solidity/"/>
     <id>https://www.faxiang.site/2016/12/02/solidity学习--安装solidity/</id>
-    <published>2016-12-02T11:04:12.000Z</published>
+    <published>2016-12-03T03:04:12.000Z</published>
     <updated>2018-02-12T03:05:52.027Z</updated>
     
     <summary type="html">
@@ -303,7 +303,7 @@ sudo apt-get install ethereum
     <title>以太坊白皮书</title>
     <link href="https://www.faxiang.site/2016/11/22/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6/"/>
     <id>https://www.faxiang.site/2016/11/22/以太坊白皮书/</id>
-    <published>2016-11-22T14:55:12.000Z</published>
+    <published>2016-11-23T06:55:12.000Z</published>
     <updated>2018-02-12T03:05:50.936Z</updated>
     
     <summary type="html">
@@ -323,7 +323,7 @@ sudo apt-get install ethereum
     <title>知乎回答转载--如何简单易懂的介绍区块链</title>
     <link href="https://www.faxiang.site/2016/11/13/%E5%A6%82%E4%BD%95%E7%AE%80%E5%8D%95%E6%98%93%E6%87%82%E7%9A%84%E4%BB%8B%E7%BB%8D%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     <id>https://www.faxiang.site/2016/11/13/如何简单易懂的介绍区块链/</id>
-    <published>2016-11-13T08:48:12.000Z</published>
+    <published>2016-11-14T00:48:12.000Z</published>
     <updated>2018-02-12T03:05:50.638Z</updated>
     
     <summary type="html">
@@ -344,7 +344,7 @@ sudo apt-get install ethereum
     <title>区块链学习--区块链介绍</title>
     <link href="https://www.faxiang.site/2016/11/12/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0--%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BB%8B%E7%BB%8D/"/>
     <id>https://www.faxiang.site/2016/11/12/区块链学习--区块链介绍/</id>
-    <published>2016-11-12T07:12:12.000Z</published>
+    <published>2016-11-12T23:12:12.000Z</published>
     <updated>2018-02-12T03:05:50.619Z</updated>
     
     <summary type="html">
@@ -367,7 +367,7 @@ sudo apt-get install ethereum
     <title>Solidity学习之智能合约介绍</title>
     <link href="https://www.faxiang.site/2016/11/09/solidity--%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E4%BB%8B%E7%BB%8D/"/>
     <id>https://www.faxiang.site/2016/11/09/solidity--智能合约介绍/</id>
-    <published>2016-11-09T10:53:12.000Z</published>
+    <published>2016-11-10T02:53:12.000Z</published>
     <updated>2018-02-12T03:05:52.002Z</updated>
     
     <summary type="html">
@@ -381,9 +381,9 @@ sudo apt-get install ethereum
       <category term="solidity" scheme="https://www.faxiang.site/categories/solidity/"/>
     
     
-      <category term="智能合约" scheme="https://www.faxiang.site/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
-    
       <category term="solidity" scheme="https://www.faxiang.site/tags/solidity/"/>
+    
+      <category term="智能合约" scheme="https://www.faxiang.site/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
     
   </entry>
   
@@ -391,7 +391,7 @@ sudo apt-get install ethereum
     <title>心情随笔</title>
     <link href="https://www.faxiang.site/2016/09/25/%E9%9A%8F%E7%AC%94/"/>
     <id>https://www.faxiang.site/2016/09/25/随笔/</id>
-    <published>2016-09-25T12:55:12.000Z</published>
+    <published>2016-09-26T03:55:12.000Z</published>
     <updated>2018-02-12T03:05:50.854Z</updated>
     
     <summary type="html">
@@ -412,7 +412,7 @@ sudo apt-get install ethereum
     <title>1055. 集体照</title>
     <link href="https://www.faxiang.site/2016/07/15/1055.%20%E9%9B%86%E4%BD%93%E7%85%A7/"/>
     <id>https://www.faxiang.site/2016/07/15/1055. 集体照/</id>
-    <published>2016-07-15T15:25:12.000Z</published>
+    <published>2016-07-16T06:25:12.000Z</published>
     <updated>2018-02-12T03:05:50.435Z</updated>
     
     <summary type="html">
@@ -439,7 +439,7 @@ sudo apt-get install ethereum
     <title>1054. 求平均值</title>
     <link href="https://www.faxiang.site/2016/07/15/1054.%20%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/"/>
     <id>https://www.faxiang.site/2016/07/15/1054. 求平均值/</id>
-    <published>2016-07-15T15:24:12.000Z</published>
+    <published>2016-07-16T06:24:12.000Z</published>
     <updated>2018-02-12T03:05:50.419Z</updated>
     
     <summary type="html">
@@ -465,7 +465,7 @@ sudo apt-get install ethereum
     <title>1053. 住房空置率</title>
     <link href="https://www.faxiang.site/2016/07/15/1053.%20%E4%BD%8F%E6%88%BF%E7%A9%BA%E7%BD%AE%E7%8E%87/"/>
     <id>https://www.faxiang.site/2016/07/15/1053. 住房空置率/</id>
-    <published>2016-07-15T15:23:12.000Z</published>
+    <published>2016-07-16T06:23:12.000Z</published>
     <updated>2018-02-12T03:05:50.400Z</updated>
     
     <summary type="html">

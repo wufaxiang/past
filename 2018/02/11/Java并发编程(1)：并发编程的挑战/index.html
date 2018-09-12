@@ -19,7 +19,7 @@
 
   
   
-  <link rel="stylesheet" media="all" href="/blog/lib/Han/dist/han.min.css?v=3.3">
+  <link rel="stylesheet" media="all" href="/past/lib/Han/dist/han.min.css?v=3.3">
 
 
 
@@ -44,7 +44,7 @@
 
   
   
-  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/past/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -90,21 +90,21 @@
 
 
 
-<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/past/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+<link href="/past/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/past/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/past/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/past/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/past/images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -116,7 +116,7 @@
 
 
 
-  <link rel="alternate" href="/blog/atom.xml" title="Flynn Ng" type="application/atom+xml" />
+  <link rel="alternate" href="/past/atom.xml" title="Faxiang Wu" type="application/atom+xml" />
 
 
 
@@ -127,8 +127,8 @@
 <meta name="keywords" content="Java,并发编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java并发编程（1）：并发编程的挑战">
-<meta property="og:url" content="https://www.faxiang.site/2018/02/12/Java并发编程(1)：并发编程的挑战/index.html">
-<meta property="og:site_name" content="Flynn Ng">
+<meta property="og:url" content="https://www.faxiang.site/2018/02/11/Java并发编程(1)：并发编程的挑战/index.html">
+<meta property="og:site_name" content="Faxiang Wu">
 <meta property="og:description" content="并发编程目的是为了让程序运行的更快，但是并不是启动更多的线程就能让程序最大程度地并发运行。在并发编程时，会面临很多的挑战，下面介绍三种。 1. 上下文切换即使是单核CPU也可以支持多线程执行代码，CPU通过给每个CPU时间片来实现这个机制。时间片是CPU分配给每个线程的时间，因为非常短，所以CPU通过切换线程执行，感觉就是多个线程是同时执行的。任务从保存到再加载的过程就是一次上下文切换。由于线程之">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-02-12T03:05:51.481Z">
@@ -141,7 +141,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: '/blog/',
+    root: '/past/',
     scheme: 'Muse',
     version: '5.1.4',
     sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -164,13 +164,13 @@
 
 
 
-  <link rel="canonical" href="https://www.faxiang.site/2018/02/12/Java并发编程(1)：并发编程的挑战/"/>
+  <link rel="canonical" href="https://www.faxiang.site/2018/02/11/Java并发编程(1)：并发编程的挑战/"/>
 
 
 
 
 
-  <title>Java并发编程（1）：并发编程的挑战 | Flynn Ng</title>
+  <title>Java并发编程（1）：并发编程的挑战 | Faxiang Wu</title>
   
 
 
@@ -198,9 +198,9 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/blog/"  class="brand" rel="start">
+      <a href="/past/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Flynn Ng</span>
+        <span class="site-title">Faxiang Wu</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -236,7 +236,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blog/tags/" rel="section">
+          <a href="/past/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -246,7 +246,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blog/archives/" rel="section">
+          <a href="/past/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -321,16 +321,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.faxiang.site/blog/2018/02/12/Java并发编程(1)：并发编程的挑战/">
+    <link itemprop="mainEntityOfPage" href="https://www.faxiang.site/past/2018/02/11/Java并发编程(1)：并发编程的挑战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Flynn Ng">
+      <meta itemprop="name" content="Faxiang Wu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="/past/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Flynn Ng">
+      <meta itemprop="name" content="Faxiang Wu">
     </span>
 
     
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-12T11:05:51+08:00">
-                2018-02-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-11T19:05:51-08:00">
+                2018-02-11
               </time>
             
 
@@ -373,7 +373,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/Java并发编程/" itemprop="url" rel="index">
+                  <a href="/past/categories/Java并发编程/" itemprop="url" rel="index">
                     <span itemprop="name">Java并发编程</span>
                   </a>
                 </span>
@@ -488,11 +488,11 @@
         <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>本文作者：</strong>
-    Flynn Ng
+    Faxiang Wu
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.faxiang.site/2018/02/12/Java并发编程(1)：并发编程的挑战/" title="Java并发编程（1）：并发编程的挑战">https://www.faxiang.site/2018/02/12/Java并发编程(1)：并发编程的挑战/</a>
+    <a href="https://www.faxiang.site/2018/02/11/Java并发编程(1)：并发编程的挑战/" title="Java并发编程（1）：并发编程的挑战">https://www.faxiang.site/2018/02/11/Java并发编程(1)：并发编程的挑战/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -507,9 +507,9 @@
       
         <div class="post-tags">
           
-            <a href="/blog/tags/Java/" rel="tag"># Java</a>
+            <a href="/past/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/blog/tags/并发编程/" rel="tag"># 并发编程</a>
+            <a href="/past/tags/并发编程/" rel="tag"># 并发编程</a>
           
         </div>
       
@@ -522,7 +522,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2018/02/12/区块链-新经济蓝图及导读" 读书笔记/" rel="next" title="<转载>"区块链-新经济蓝图及导读"读书笔记">
+              <a href="/past/2018/02/11/区块链-新经济蓝图及导读" 读书笔记/" rel="next" title="<转载>"区块链-新经济蓝图及导读"读书笔记">
                 <i class="fa fa-chevron-left"></i> <转载>"区块链-新经济蓝图及导读"读书笔记
               </a>
             
@@ -532,7 +532,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2018/02/12/Java并发编程（2）：Java并发编程基础/" rel="prev" title="Java并发编程（2）：Java并发编程基础">
+              <a href="/past/2018/02/11/Java并发编程（2）：Java并发编程基础/" rel="prev" title="Java并发编程（2）：Java并发编程基础">
                 Java并发编程（2）：Java并发编程基础 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -581,7 +581,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Flynn Ng</span>
+  <span class="author" itemprop="copyrightHolder">Faxiang Wu</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -602,7 +602,7 @@
 
 
 
-  <div class="footer-custom">Hosted by <a href="https://pages.coding.me">Coding Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+  <div class="footer-custom">Hosted by <a href="https://pages.github.com/">Github Pages</a>, Powered by <a href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
 
 
         
@@ -682,67 +682,67 @@
 
   
   
-    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/past/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/past/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/past/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/past/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/past/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/past/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/three/three.min.js"></script>
+    <script type="text/javascript" src="/past/lib/three/three.min.js"></script>
   
 
   
   
-    <script type="text/javascript" src="/blog/lib/three/canvas_lines.min.js"></script>
+    <script type="text/javascript" src="/past/lib/three/canvas_lines.min.js"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/past/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/past/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/past/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/past/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/past/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -792,7 +792,7 @@
     } else if (/json$/i.test(search_path)) {
       isXml = false;
     }
-    var path = "/blog/" + search_path;
+    var path = "/past/" + search_path;
     // monitor main search box;
 
     var onPopupClose = function (e) {
@@ -1153,7 +1153,7 @@
   
 
   
-  <script type="text/javascript" src="/blog/js/src/exturl.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/past/js/src/exturl.js?v=5.1.4"></script>
 
 
 </body>
